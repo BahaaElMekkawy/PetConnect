@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using PetConnect.DAL.Data;
+
 namespace PetConnect.PL
 {
     public class Program
@@ -6,8 +9,16 @@ namespace PetConnect.PL
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            #region Services
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<AppDbContext>(options => {
+
+                options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection"));
+            
+            });
+  
+            #endregion
 
             var app = builder.Build();
 
@@ -18,6 +29,7 @@ namespace PetConnect.PL
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
