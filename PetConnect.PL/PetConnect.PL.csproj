@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PetConnect.BLL\PetConnect.BLL.csproj" />
+  </ItemGroup>
+
 </Project>
