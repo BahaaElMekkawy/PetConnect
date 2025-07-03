@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
+﻿
 namespace PetConnect.DAL.Data.Models
 {
     public class Shelter
@@ -16,5 +10,6 @@ namespace PetConnect.DAL.Data.Models
         public ICollection<ShelterAddedPets> ShelterAddedPets { get; set; } = new HashSet<ShelterAddedPets>();
         public ICollection<ShelterPetAdoptions> ShelterPetAdoptions { get; set; } = new HashSet<ShelterPetAdoptions>();
 
+        public ShelterOwner ShelterOwner { get; set; } = null!;
     }
 }

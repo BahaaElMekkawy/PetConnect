@@ -1,5 +1,6 @@
 ﻿
 using PetConnect.DAL.Data.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetConnect.DAL.Data.Models
 {
@@ -12,6 +13,8 @@ namespace PetConnect.DAL.Data.Models
         public Ownership Ownership{ get; set; }
         public string ImgUrl { get; set; } = null!;
         //Navs
+       
+       
         public int BreedId { get; set; }
         public PetBreed Breed{ get; set; } = null!; // Set No Action 
 

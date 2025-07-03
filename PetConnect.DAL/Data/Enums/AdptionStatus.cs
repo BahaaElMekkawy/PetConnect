@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetConnect.DAL.Data.Enums
 {
-    public enum AdptionStatus
+    public enum AdoptionStatus
     {
         Approved,
         Pending,

@@ -7,7 +7,9 @@ using PetConnect.DAL.Data.Identity;
 
 namespace PetConnect.DAL.Data.Models
 {
-    class ShelterOwner : ApplicationUser
+    public  class ShelterOwner : ApplicationUser
     {
+
+        public ICollection<Shelter> Shelters = new HashSet<Shelter>();
     }
 }
