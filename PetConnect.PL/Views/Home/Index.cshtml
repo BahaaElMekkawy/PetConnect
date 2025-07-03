@@ -2,7 +2,694 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@{
+    Layout = "_NewLayout";
+}
+
+
+
+
+
+<section id="hero" class="hero section">
+
+    <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="badge-wrapper mb-3">
+                    <div class="d-inline-flex align-items-center rounded-pill border border-accent-light">
+                        <div class="icon-circle me-2">
+                            <i class="bi bi-bell"></i>
+                        </div>
+                        <span class="badge-text me-3">
+                            Next-Gen Animal Care
+
+                        </span>
+                    </div>
+                </div>
+
+                <h1 class="hero-title mb-4">Find, Adopt & Care <br /> All in One Place</h1>
+
+                <p class="hero-description mb-4">
+                    PetConnect makes pet adoption, veterinary care, and pet shopping easier than ever.
+                    Discover trusted vets, rescued animals, and quality pet products — all from one platform built for Egypt’s growing pet-loving community.
+                </p>
+
+                <div class="cta-wrapper">
+                    <a asp-action="index" asp-controller="pets" class="btn btn-primary">Discover More <i class="bi bi-arrow-right btn-icon"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+                <div class="hero-image">
+                    <img src="assets\img\hero dog.png" alt="Business Growth" class="img-fluid" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <div class="row feature-boxes">
+            <div class="col-lg-4 mb-4 mb-lg-0 aos-init" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-box">
+                    <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
+                        <i class="bi bi-1-circle-fill"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Find</h3>
+                        <p class="feature-text">
+                            Discover your perfect companion from trusted shelters and rescuers near you.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4 mb-lg-0 aos-init" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-box">
+                    <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
+                        <i class="bi bi-2-circle-fill"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Adopt</h3>
+                        <p class="feature-text">
+                            Give a loving home to a pet in need — and gain a loyal friend for life.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 aos-init" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-box">
+                    <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
+                        <i class="bi bi-3-circle-fill"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Care</h3>
+                        <p class="feature-text">
+                            Book vet visits, get expert advice, and shop for food, meds, and more — all in one place.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section id="how-we-work" class="how-we-work section">
+
+    <!-- Section Title -->
+    <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2>
+            How PetConnect Works
+
+        </h2>
+        <p>
+            From discovery to care — everything your pet needs in one seamless experience.
+
+        </p>
+    </div><!-- End Section Title -->
+
+    <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="steps-5">
+            <div class="process-container">
+
+                <div class="process-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                    <div class="content">
+                        <span class="step-number">01</span>
+                        <div class="card-body">
+                            <div class="step-icon">
+                                <i class="bi bi-pencil-square"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Browse Pets</h3>
+                                <p>
+                                    Explore adoptable pets, nearby vets, and top pet products — all in one place.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Process Item -->
+
+                <div class="process-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                    <div class="content">
+                        <span class="step-number">02</span>
+                        <div class="card-body">
+                            <div class="step-icon">
+                                <i class="bi bi-gear"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Send a Request</h3>
+                                <p>
+                                    Apply to adopt a pet, book a vet appointment, or place an order with just a few clicks.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Process Item -->
+
+                <div class="process-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                    <div class="content">
+                        <span class="step-number">03</span>
+                        <div class="card-body">
+                            <div class="step-icon">
+                                <i class="bi bi-search"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Connect & Confirm</h3>
+                                <p>
+                                    We notify shelters, vets, or sellers — and help confirm availability or next steps.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Process Item -->
+
+                <div class="process-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+                    <div class="content">
+                        <span class="step-number">04</span>
+                        <div class="card-body">
+                            <div class="step-icon">
+                                <i class="bi bi-rocket-takeoff"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Adopt. Care. Repeat.</h3>
+                                <p>
+                                    Bring home your new pet, track vet visits, and keep shopping for all your pet needs.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Process Item -->
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="call-to-action-2" class="call-to-action-2 section light-background">
+
+    <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
+                <div class="cta-image-wrapper">
+                    <img src="assets\img\person\doctor_dog.png" alt="Call to Action" class="img-fluid rounded-4">
+                    @* <div class="cta-pattern"></div> *@
+                </div>
+            </div>
+
+            <div class="col-lg-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
+                <div class="cta-content">
+                    <h2>
+                        Trusted Vets. Compassionate Care.
+
+                    </h2>
+                    <p class="lead">
+                        At PetConnect, your pet’s health comes first. We partner only with verified, licensed veterinarians who offer both online and in-clinic consultations — ensuring safe, expert care from the moment your pet needs it.
+
+                    </p>
+
+                    <div class="cta-features">
+                        <div class="feature-item aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Certified Professionals</span>
+                        </div>
+                        <div class="feature-item aos-init aos-animate" data-aos="zoom-in" data-aos-delay="450">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Nearby & Available</span>
+                        </div>
+                        <div class="feature-item aos-init aos-animate" data-aos="zoom-in" data-aos-delay="500">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Gentle, Reliable Care</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-action mt-5">
+                        <a asp-action="index" asp-controller="doctors" class="btn btn-primary btn-lg me-3">Get Started</a>
+                        <a asp-action="index" asp-controller="pets" class="btn btn-outline-primary btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+<section id="testimonials" class="testimonials section">
+
+    <!-- Section Title -->
+    <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2>Testimonials</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    </div><!-- End Section Title -->
+
+    <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="testimonials-slider swiper init-swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+            <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 800,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": 1,
+                  "spaceBetween": 30,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  },
+                  "breakpoints": {
+                    "768": {
+                      "slidesPerView": 2
+                    },
+                    "1200": {
+                      "slidesPerView": 3
+                    }
+                  }
+                }
+            </script>
+            <div class="swiper-wrapper" id="swiper-wrapper-f9b1898c1c3d2916" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-1326px, 0px, 0px); transition-delay: 0ms;">
+                <!-- End testimonial item -->
+                <!-- End testimonial item -->
+
+                <div class="swiper-slide" role="group" aria-label="3 / 6" data-swiper-slide-index="2" style="width: 412px; margin-right: 30px;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                <i class="bi bi-quote quote-icon"></i>
+                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram.
+                            </p>
+                        </div>
+                        <div class="testimonial-profile">
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="profile-info">
+                                <img src="assets/img/person/person-f-10.webp" alt="Profile Image">
+                                <div>
+                                    <h3>Emma Parker</h3>
+                                    <h4>UX Designer</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide" role="group" aria-label="4 / 6" data-swiper-slide-index="3" style="width: 412px; margin-right: 30px;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                <i class="bi bi-quote quote-icon"></i>
+                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit.
+                            </p>
+                        </div>
+                        <div class="testimonial-profile">
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="profile-info">
+                                <img src="assets/img/person/person-m-5.webp" alt="Profile Image">
+                                <div>
+                                    <h3>David Miller</h3>
+                                    <h4>Senior Developer</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide swiper-slide-prev" role="group" aria-label="5 / 6" data-swiper-slide-index="4" style="width: 412px; margin-right: 30px;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                <i class="bi bi-quote quote-icon"></i>
+                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat.
+                            </p>
+                        </div>
+                        <div class="testimonial-profile">
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="profile-info">
+                                <img src="assets/img/person/person-m-2.webp" alt="Profile Image">
+                                <div>
+                                    <h3>Michael Davis</h3>
+                                    <h4>CEO &amp; Founder</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide swiper-slide-active" role="group" aria-label="6 / 6" data-swiper-slide-index="5" style="width: 412px; margin-right: 30px;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                <i class="bi bi-quote quote-icon"></i>
+                                Eius ipsam praesentium dolor quaerat inventore rerum odio. Quos laudantium adipisci eius. Accusamus qui iste cupiditate sed temporibus est aspernatur.
+                            </p>
+                        </div>
+                        <div class="testimonial-profile">
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="profile-info">
+                                <img src="assets/img/person/person-f-7.webp" alt="Profile Image">
+                                <div>
+                                    <h3>Sarah Thompson</h3>
+                                    <h4>Art Director</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End testimonial item -->
+                <div class="swiper-slide swiper-slide-next" role="group" aria-label="1 / 6" data-swiper-slide-index="0" style="width: 412px; margin-right: 30px;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                <i class="bi bi-quote quote-icon"></i>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                        </div>
+                        <div class="testimonial-profile">
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="profile-info">
+                                <img src="assets/img/person/person-m-8.webp" alt="Profile Image">
+                                <div>
+                                    <h3>Robert Johnson</h3>
+                                    <h4>Marketing Director</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="swiper-slide" role="group" aria-label="2 / 6" data-swiper-slide-index="1" style="width: 412px; margin-right: 30px;">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                <i class="bi bi-quote quote-icon"></i>
+                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et maecenas aliquam.
+                            </p>
+                        </div>
+                        <div class="testimonial-profile">
+                            <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="profile-info">
+                                <img src="assets/img/person/person-f-3.webp" alt="Profile Image">
+                                <div>
+                                    <h3>Lisa Williams</h3>
+                                    <h4>Product Manager</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 6" aria-current="true"></span></div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+    .text-dark-yellow {
+        color: #c28800 !important;
+    }
+</style>
+
+<section id="team" class="team section light-background">
+    <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2>Our Vets</h2>
+        <p>Meet the trusted professionals dedicated to keeping your pets safe, healthy, and happy.</p>
+    </div>
+
+    <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-5">
+
+            <!-- Vet 1 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-m-1.webp" class="img-fluid" alt="Dr. Daniel Mitchell">
+                        <div class="team-overlay">
+                            <p>Certified vet with over 10 years of experience in emergency and preventive animal care.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="1" class="text-dark text-decoration-none">
+                                Dr. Daniel Mitchell
+                            </a>
+                        </h4>
+                        <span class="position">Senior Veterinarian</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 2 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-f-6.webp" class="img-fluid" alt="Dr. Rebecca Taylor">
+                        <div class="team-overlay">
+                            <p>Specialist in small animal surgery and post-adoption rehabilitation programs.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="2" class="text-dark text-decoration-none">
+                                Dr. Rebecca Taylor
+                            </a>
+                        </h4>
+                        <span class="position">Surgical Vet Specialist</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-half text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 3 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-m-6.webp" class="img-fluid" alt="Dr. Marcus Johnson">
+                        <div class="team-overlay">
+                            <p>Focused on preventive care, vaccinations, and animal nutrition guidance.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="3" class="text-dark text-decoration-none">
+                                Dr. Marcus Johnson
+                            </a>
+                        </h4>
+                        <span class="position">Preventive Care Expert</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 4 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-f-3.webp" class="img-fluid" alt="Dr. Jessica Parker">
+                        <div class="team-overlay">
+                            <p>Passionate about animal welfare, she leads public awareness and mobile vet programs.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="4" class="text-dark text-decoration-none">
+                                Dr. Jessica Parker
+                            </a>
+                        </h4>
+                        <span class="position">Community Health Lead</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="mt-5 text-center">
+            <a asp-controller="doctors" asp-action="index" class="btn btn-primary btn-md rounded-0">All Vets</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="adoptable-pets" class="team section bg-light">
+    <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2>Pets Ready for Adoption</h2>
+        <p>Find your new best friend and give a rescued pet a loving home.</p>
+    </div>
+
+    <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-5">
+
+            <!-- Pet 1 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/pets/dog1.png" class="img-fluid" alt="Bella">
+                    </div>
+                    <div class="team-content pet-info">
+                        <h4>Bella</h4>
+                        <span>Age: 2 years</span>
+                        <span>Health: Vaccinated, Healthy</span>
+                        <span>Posted by: Sarah H.</span>
+                        <div class="mt-3 d-flex justify-content-center gap-2">
+                            <a asp-action="index" asp-controller="home" class="btn btn-outline-pet btn-sm">Learn More</a>
+                            <a asp-action="index" asp-controller="home" class="btn btn-pet-primary btn-sm">Adopt Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pet 2 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/pets/cat1.png" class="img-fluid" alt="Max">
+                    </div>
+                    <div class="team-content pet-info">
+                        <h4>Max</h4>
+                        <span>Age: 1 year</span>
+                        <span>Health: Needs follow-up</span>
+                        <span>Posted by: Cairo Shelter</span>
+                        <div class="mt-3 d-flex justify-content-center gap-2">
+                            <a asp-action="index" asp-controller="home" class="btn btn-outline-pet btn-sm">Learn More</a>
+                            <a asp-action="index" asp-controller="home" class="btn btn-pet-primary btn-sm">Adopt Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pet 3 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/pets/cat2.png" class="img-fluid" alt="Luna">
+                    </div>
+                    <div class="team-content pet-info">
+                        <h4>Luna</h4>
+                        <span>Age: 3 months</span>
+                        <span>Health: Healthy, Dewormed</span>
+                        <span>Posted by: PetRescue Org</span>
+                        <div class="mt-3 d-flex justify-content-center gap-2">
+                            <a asp-action="index" asp-controller="home" class="btn btn-outline-pet btn-sm">Learn More</a>
+                            <a asp-action="index" asp-controller="home" class="btn btn-pet-primary btn-sm">Adopt Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pet 4 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/pets/dog2.png" class="img-fluid" alt="Rocky">
+                    </div>
+                    <div class="team-content pet-info">
+                        <h4>Rocky</h4>
+                        <span>Age: 4 years</span>
+                        <span>Health: Healthy, Neutered</span>
+                        <span>Posted by: Ahmed K.</span>
+                        <div class="mt-3 d-flex justify-content-center gap-2">
+                            <a asp-action="index" asp-controller="home" class="btn btn-outline-pet btn-sm">Learn More</a>
+                            <a asp-action="index" asp-controller="home" class="btn btn-pet-primary btn-sm">Adopt Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="mt-5 text-center">
+            <a asp-controller="pets" asp-action="index" class="btn btn-primary btn-md rounded-0">All Pets</a>
+        </div>
+    </div>
+</section>
