@@ -1,0 +1,371 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    Layout = "_NewLayout";
+}
+
+
+
+
+
+<section id="hero" class="hero section pb-0">
+    <div class="container section-title aos-init aos-animate pb-0" data-aos="fade-up">
+        <h2>Our Vets</h2>
+        <p>Meet the trusted professionals dedicated to keeping your pets safe, healthy, and happy.</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="team" class="team section light-background">
+
+
+    <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-5">
+
+            <!-- Vet 1 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-m-1.webp" class="img-fluid" alt="Dr. Daniel Mitchell">
+                        <div class="team-overlay">
+                            <p>Certified vet with over 10 years of experience in emergency and preventive animal care.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="1" class="text-dark text-decoration-none">
+                                Dr. Daniel Mitchell
+                            </a>
+                        </h4>
+                        <span class="position">Senior Veterinarian</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 2 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-f-6.webp" class="img-fluid" alt="Dr. Rebecca Taylor">
+                        <div class="team-overlay">
+                            <p>Specialist in small animal surgery and post-adoption rehabilitation programs.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="2" class="text-dark text-decoration-none">
+                                Dr. Rebecca Taylor
+                            </a>
+                        </h4>
+                        <span class="position">Surgical Vet Specialist</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-half text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 3 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-m-6.webp" class="img-fluid" alt="Dr. Marcus Johnson">
+                        <div class="team-overlay">
+                            <p>Focused on preventive care, vaccinations, and animal nutrition guidance.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="3" class="text-dark text-decoration-none">
+                                Dr. Marcus Johnson
+                            </a>
+                        </h4>
+                        <span class="position">Preventive Care Expert</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 4 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-f-3.webp" class="img-fluid" alt="Dr. Jessica Parker">
+                        <div class="team-overlay">
+                            <p>Passionate about animal welfare, she leads public awareness and mobile vet programs.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="4" class="text-dark text-decoration-none">
+                                Dr. Jessica Parker
+                            </a>
+                        </h4>
+                        <span class="position">Community Health Lead</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            
+            <!-- Vet 1 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-m-1.webp" class="img-fluid" alt="Dr. Daniel Mitchell">
+                        <div class="team-overlay">
+                            <p>Certified vet with over 10 years of experience in emergency and preventive animal care.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="1" class="text-dark text-decoration-none">
+                                Dr. Daniel Mitchell
+                            </a>
+                        </h4>
+                        <span class="position">Senior Veterinarian</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 2 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-f-6.webp" class="img-fluid" alt="Dr. Rebecca Taylor">
+                        <div class="team-overlay">
+                            <p>Specialist in small animal surgery and post-adoption rehabilitation programs.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="2" class="text-dark text-decoration-none">
+                                Dr. Rebecca Taylor
+                            </a>
+                        </h4>
+                        <span class="position">Surgical Vet Specialist</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-half text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 3 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-m-6.webp" class="img-fluid" alt="Dr. Marcus Johnson">
+                        <div class="team-overlay">
+                            <p>Focused on preventive care, vaccinations, and animal nutrition guidance.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="3" class="text-dark text-decoration-none">
+                                Dr. Marcus Johnson
+                            </a>
+                        </h4>
+                        <span class="position">Preventive Care Expert</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 4 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-f-3.webp" class="img-fluid" alt="Dr. Jessica Parker">
+                        <div class="team-overlay">
+                            <p>Passionate about animal welfare, she leads public awareness and mobile vet programs.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="4" class="text-dark text-decoration-none">
+                                Dr. Jessica Parker
+                            </a>
+                        </h4>
+                        <span class="position">Community Health Lead</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Vet 1 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-m-1.webp" class="img-fluid" alt="Dr. Daniel Mitchell">
+                        <div class="team-overlay">
+                            <p>Certified vet with over 10 years of experience in emergency and preventive animal care.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="1" class="text-dark text-decoration-none">
+                                Dr. Daniel Mitchell
+                            </a>
+                        </h4>
+                        <span class="position">Senior Veterinarian</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 2 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-f-6.webp" class="img-fluid" alt="Dr. Rebecca Taylor">
+                        <div class="team-overlay">
+                            <p>Specialist in small animal surgery and post-adoption rehabilitation programs.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="2" class="text-dark text-decoration-none">
+                                Dr. Rebecca Taylor
+                            </a>
+                        </h4>
+                        <span class="position">Surgical Vet Specialist</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-half text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 3 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-m-6.webp" class="img-fluid" alt="Dr. Marcus Johnson">
+                        <div class="team-overlay">
+                            <p>Focused on preventive care, vaccinations, and animal nutrition guidance.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="3" class="text-dark text-decoration-none">
+                                Dr. Marcus Johnson
+                            </a>
+                        </h4>
+                        <span class="position">Preventive Care Expert</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vet 4 -->
+            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
+                <div class="team-card text-center">
+                    <div class="team-image">
+                        <img src="assets/img/person/person-f-3.webp" class="img-fluid" alt="Dr. Jessica Parker">
+                        <div class="team-overlay">
+                            <p>Passionate about animal welfare, she leads public awareness and mobile vet programs.</p>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h4>
+                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="4" class="text-dark text-decoration-none">
+                                Dr. Jessica Parker
+                            </a>
+                        </h4>
+                        <span class="position">Community Health Lead</span>
+                        <div class="rating mt-2">
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star-fill text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                            <i class="bi bi-star text-dark-yellow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+  
+    </div>
+</section>
