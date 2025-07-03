@@ -13,7 +13,9 @@ namespace PetConnect.DAL.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<PetCategory> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(P => P.Name).HasColumnType("varchar(20)");
+
+
         }
     }
 }

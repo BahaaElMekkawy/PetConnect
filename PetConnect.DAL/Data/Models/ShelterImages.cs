@@ -10,5 +10,7 @@ namespace PetConnect.DAL.Data.Models
     {
         public int ShelterId { get; set; }
         public string ImgUrl { get; set; } = null!;
+
+        public Shelter Shelter { get; set; } = null!;
     }
 }

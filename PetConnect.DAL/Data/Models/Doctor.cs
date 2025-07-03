@@ -10,8 +10,8 @@ namespace PetConnect.DAL.Data.Models
 {
     public class Doctor : ApplicationUser
     {
-        public Decimal PricePerHour { get; set; }
+        public decimal PricePerHour { get; set; }
         public string CertificateUrl { get; set; } = null!;
-        public PetSpecialty AnimalSpecialty { get; set; }
+        public PetSpecialty PetSpecialty { get; set; }
     }
 }

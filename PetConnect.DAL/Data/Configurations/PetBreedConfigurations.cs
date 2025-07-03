@@ -13,6 +13,7 @@ namespace PetConnect.DAL.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<PetBreed> builder)
         {
+            builder.Property(P => P.Name).HasColumnType("varchar(20)");
             builder.HasOne(PB => PB.Category).WithMany(PC => PC.Breeds).HasForeignKey(PB => PB.CategoryId);
 
 

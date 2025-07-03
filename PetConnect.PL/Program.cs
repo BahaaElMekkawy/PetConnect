@@ -14,11 +14,11 @@ namespace PetConnect.PL
             #region Services
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            //builder.Services.AddDbContext<AppDbContext>(options => {
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection"));
 
-            //    //options.UseSqlServer(builder.Configuration.GetConnectionString("MostafaString"));
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("MostafaString"));
-            //});
+            });
             builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
                 

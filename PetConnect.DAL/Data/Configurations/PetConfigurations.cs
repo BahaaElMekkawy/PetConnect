@@ -14,14 +14,23 @@ namespace PetConnect.DAL.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Pet> builder)
         {
+            builder.Property(P => P.Name).HasColumnType("varchar(20)");
+            builder.Property(P => P.ImgUrl).HasColumnType("varchar(100)");
+           
 
-        builder.HasOne(P => P.Breed).WithMany(PB=>PB.Pets).HasForeignKey(P=>P.BreedId);
+            builder.HasOne(P => P.Breed).WithMany(PB=>PB.Pets).HasForeignKey(P=>P.BreedId);
 
-         builder.Property(P => P.Status)
-        .HasConversion(
-        PetStatus => PetStatus.ToString(),
-        returnStatus => (PetStatus)Enum.Parse(typeof(PetStatus), returnStatus)
-        );
+             builder.Property(P => P.Status)
+             .HasConversion(
+              PetStatus => PetStatus.ToString(),
+             returnStatus => (PetStatus)Enum.Parse(typeof(PetStatus), returnStatus)
+            );
+
+            builder.Property(P => P.Ownership)
+                .HasConversion(
+                Ownership => Ownership.ToString(),
+                returnOwnership => (Ownership)Enum.Parse(typeof(Ownership), returnOwnership)
+                );
         }
     }
 }

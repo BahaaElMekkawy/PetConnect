@@ -9,7 +9,7 @@ namespace PetConnect.DAL.Data.Models
 {
     public class CustomerPetAdoptions
     {
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; } = null!;
         public int PetId { get; set; }
         public DateTime AdoptionDate { get; set; }
         public AdoptionStatus Status { get; set; }

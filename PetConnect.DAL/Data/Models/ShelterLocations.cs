@@ -9,9 +9,10 @@ namespace PetConnect.DAL.Data.Models
     public class ShelterLocations
     {
         public int ShelterId { get; set; }
-        public string City { get; set; } = null!;
-        public string Street { get; set; } = null!;
-        public string Country { get; set; } = null!;
+        public int LocationCode { get; set; }
+        public Address Address { get; set; } = null!;
+
+        public Shelter Shelter { get; set; } = null!;
 
     }
 }
