@@ -19,6 +19,9 @@ namespace PetConnect.PL
                 options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection"));
 
             });
+            //Repositories Services register
+            RepositoriesCollectionExtensions.AddDalRepositories(builder.Services);
+
             builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
                 

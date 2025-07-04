@@ -9,7 +9,6 @@ namespace PetConnect.DAL.Data.Models
 {
     public  class ShelterOwner : ApplicationUser
     {
-
         public ICollection<Shelter> Shelters = new HashSet<Shelter>();
     }
 }

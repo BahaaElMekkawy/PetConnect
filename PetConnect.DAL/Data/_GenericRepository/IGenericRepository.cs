@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PetConnect.DAL.Data.Repositories;
 
 namespace PetConnect.DAL.Data.GenericRepository
 {
-    internal interface IGenericRepository<T>   // T > Entity
+    public interface IGenericRepository<T>  // T > Entity
     {
-
-        public IEnumerable<T> GetAll(); // Get All T
+        public IEnumerable<T> GetAll(bool withracking = false); // Get All T
 
         public T? GetByID(int id); // Get Element By Id
 
