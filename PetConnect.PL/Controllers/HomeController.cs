@@ -1,5 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using PetConnect.BLL.Services.Classes;
+using PetConnect.BLL.Services.DTO.Doctor;
+using PetConnect.BLL.Services.Interfaces;
 using PetConnect.PL.Models;
 
 namespace PetConnect.PL.Controllers;
@@ -7,15 +10,18 @@ namespace PetConnect.PL.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    IDoctorService doctorService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IDoctorService _doctorService)
     {
         _logger = logger;
+        doctorService = _doctorService;
     }
 
     public IActionResult Index()
     {
-        return View();
+     List<DoctorDetailsDTO> TopDoctors =  doctorService.GetAll().Take(4).ToList();
+        return View(TopDoctors);
     }
 
     public IActionResult Privacy()
