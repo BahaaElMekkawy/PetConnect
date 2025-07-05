@@ -1,5 +1,65 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model AddedPetDto
+@using PetConnect.BLL.Services.DTO.PetDto
+@using PetConnect.DAL.Data.Enums
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow rounded-4 p-4">
+                <h2 class="mb-4">Add New Pet</h2>
+
+                <form asp-action="AddPet" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Status" class="form-label"></label>
+                        <select asp-for="Status" class="form-select">
+                            @foreach (var status in Enum.GetValues(typeof(PetStatus)).Cast<PetStatus>())
+                            {
+                                    <option value="@status">@status</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Ownership" class="form-label"></label>
+                        <select asp-for="Ownership" class="form-select">
+                            @foreach (var owner in Enum.GetValues(typeof(Ownership)).Cast<Ownership>())
+                            {
+                                    <option value="@owner">@owner</option>
+                            }
+                        </select>
+                    </div>
+
+                    
+
+                    <div class="mb-3">
+                        <label asp-for="BreedId" class="form-label"></label>
+                        <input asp-for="BreedId" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="form" class="form-label"></label>
+                        <input asp-for="form" class="form-control" type="file" />
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-action="Index" asp-controller="Pet" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+

@@ -1,0 +1,43 @@
+﻿@model PetDetailsDto
+@using PetConnect.BLL.Services.DTO.PetDto
+@using PetConnect.DAL.Data.Enums
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded-4 p-3">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-5">
+                        <img src="~/assets/PetImages/@Model.ImgUrl" class="img-fluid rounded-3" alt="@Model.Name" />
+                    </div>
+                    <div class="col-md-7">
+                        <h2 class="mb-3">@Model.Name</h2>
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <strong>Status:</strong> @Model.Status
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Approved:</strong> @(Model.IsApproved ? "Yes" : "No")
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Ownership:</strong> @Model.Ownership
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Breed Name:</strong> @Model.BreadName
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Category:</strong> @Model.CategoryName
+                            </li>
+                        </ul>
+
+                        <div class="mt-4 d-flex gap-2">
+                            <a asp-action="Adopt" asp-route-id="@Model.Id" class="btn btn-primary">Adopt Now</a>
+                            <a asp-action="Index" asp-controller="Pet" class="btn btn-secondary">Back to Pets</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
