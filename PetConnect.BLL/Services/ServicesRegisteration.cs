@@ -21,6 +21,8 @@ namespace PetConnect.DAL.Services
 
             services.AddScoped<IPetCategoryService, PetCategoryService>();
 
+
+            services.AddScoped<IPetBreadService,PetBreadService>();
             return services;
         }
     }
