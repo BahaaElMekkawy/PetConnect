@@ -36,6 +36,10 @@ namespace PetConnect.DAL.Data.GenericRepository
         {
             return context.Set<T>().Find(id);
         }
+        public T? GetByID(string id)
+        {
+            return context.Set<T>().Find(id);
+        }
 
         public void Update(T entity)
         {

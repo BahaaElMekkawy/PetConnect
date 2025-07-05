@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PetConnect.BLL.Services.Classes;
+using PetConnect.BLL.Services.Interfaces;
 using PetConnect.DAL.Data;
 using PetConnect.DAL.Data.Identity;
 
@@ -24,7 +26,10 @@ namespace PetConnect.PL
 
             builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
-                
+
+
+            builder.Services.AddScoped<IDoctorService, DoctorService>();
+
             #endregion
 
             var app = builder.Build();
