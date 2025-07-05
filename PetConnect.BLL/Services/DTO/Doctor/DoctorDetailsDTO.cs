@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PetConnect.BLL.Services.DTO.Doctor
 {
-  public class DoctorDetailsDTO
+    public class DoctorDetailsDTO
     {
         [Required]
         public string Id { get; set; } = null!;
@@ -23,9 +24,11 @@ namespace PetConnect.BLL.Services.DTO.Doctor
         public string LName { get; set; } = null!;
 
         [Display(Name = "Profile Image URL")]
-        [Required(ErrorMessage = "Image URL is required.")]
         [StringLength(100, ErrorMessage = "Image URL cannot exceed 100 characters.")]
-        public string ImgUrl { get; set; } = null!;
+
+        public string? ImgUrl { get; set; }
+        [Display(Name = "Profile Image")]
+        public IFormFile? ImageFile { get; set; } // <-- this replaces ImageUrl in the form
 
         [Display(Name = "Specialty")]
         [Required(ErrorMessage = "Specialty is required.")]
@@ -39,9 +42,13 @@ namespace PetConnect.BLL.Services.DTO.Doctor
         [Range(1, 10000, ErrorMessage = "Price must be between 1 and 10,000 EGP.")]
         public decimal PricePerHour { get; set; }
 
-        [Display(Name = "Certificate URL")]
-        [Required(ErrorMessage = "Certificate URL is required.")]
-        public string CertificateUrl { get; set; } = null!;
+        [Display(Name = "Certificate Image URL")]
+        [StringLength(100, ErrorMessage = "Image URL cannot exceed 100 characters.")]
+        public string? CertificateUrl { get; set; }
+
+
+        [Display(Name = "Certificate Image")]
+        public IFormFile? CertificateFile { get; set; } // <-- this replaces ImageUrl in the form
 
         [Display(Name = "Street Address")]
         [Required(ErrorMessage = "Street address is required.")]
@@ -52,5 +59,11 @@ namespace PetConnect.BLL.Services.DTO.Doctor
         [Required(ErrorMessage = "City is required.")]
         [StringLength(50, ErrorMessage = "City name can't be longer than 20 characters.")]
         public string City { get; set; } = null!;
+
+
+
+    
+
+   
     }
 }

@@ -15,7 +15,7 @@
 
 <section class="section">
     <div class="container">
-        <form asp-action="Edit" method="post" class="row g-3">
+        <form asp-action="Edit" method="post" class="row g-3" enctype="multipart/form-data">
             @* Hidden ID *@
             <input type="hidden" asp-for="Id" />
 
@@ -54,15 +54,15 @@
             </div>
 
             <div class="col-md-6">
-                <label asp-for="CertificateUrl" class="form-label"></label>
-                <input asp-for="CertificateUrl" class="form-control" />
-                <span asp-validation-for="CertificateUrl" class="text-danger"></span>
+                <label asp-for="CertificateFile" class="form-label"></label>
+                <input asp-for="CertificateFile" class="form-control" />
+                <span asp-validation-for="CertificateFile" class="text-danger"></span>
             </div>
 
             <div class="col-md-6">
-                <label asp-for="ImgUrl" class="form-label"></label>
-                <input asp-for="ImgUrl" class="form-control" />
-                <span asp-validation-for="ImgUrl" class="text-danger"></span>
+                <label asp-for="ImageFile" class="form-label"></label>
+                <input asp-for="ImageFile" class="form-control" type="file" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
             </div>
 
             <div class="col-md-6">
