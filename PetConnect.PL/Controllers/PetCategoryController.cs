@@ -17,7 +17,7 @@ namespace PetConnect.PL.Controllers
         {
             var Model = _petCategoryService.GetAllCategories(false);
             return View(Model);
-        } 
+        }
         #endregion
 
         #region Add
@@ -48,10 +48,11 @@ namespace PetConnect.PL.Controllers
         [HttpGet]
         public IActionResult EditDelete(int? id)
         {
-            if (id is null) {
+            if (id is null)
+            {
                 return BadRequest();
             }
-            var model= _petCategoryService.GetPetCategoryById(id.Value);
+            var model = _petCategoryService.GetPetCategoryById(id.Value);
             if (model is null)
                 return NotFound();
 
@@ -75,7 +76,7 @@ namespace PetConnect.PL.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            
+
             if (ModelState.IsValid && _petCategoryService.DeletePetCategory(id) > 0)
             {
                 return RedirectToAction(nameof(Index));

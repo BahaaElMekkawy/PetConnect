@@ -26,11 +26,11 @@ namespace PetConnect.BLL.Services.Classes
 
             List<GPetCategoryDto> PetCategoryDtoList = new List<GPetCategoryDto>();
 
-            StatisticsGPetCategoryDto statisticsGPetCategoryDto = new StatisticsGPetCategoryDto();  
+            StatisticsGPetCategoryDto statisticsGPetCategoryDto = new StatisticsGPetCategoryDto();
 
             foreach (var petCategory in PetCategoryList)
             {
-                PetCategoryDtoList.Add(new GPetCategoryDto() { Name = petCategory.Name,Id = petCategory.Id });
+                PetCategoryDtoList.Add(new GPetCategoryDto() { Name = petCategory.Name, Id = petCategory.Id });
             }
             statisticsGPetCategoryDto.CategoriesCount = PetCategoryDtoList.Count;
             statisticsGPetCategoryDto.GPetCategoryDto = PetCategoryDtoList;
@@ -40,25 +40,28 @@ namespace PetConnect.BLL.Services.Classes
 
         public int AddPetCategory(AddedPetCategoryDTO AddedPetCategoryDTO)
         {
-            var PetCategory = new PetCategory() {
-             Name = AddedPetCategoryDTO.Name
+            var PetCategory = new PetCategory()
+            {
+                Name = AddedPetCategoryDTO.Name
             };
 
             _unitOfWork.PetCategoryRepository.Add(PetCategory);
-          return  _unitOfWork.SaveChanges();
-                
+            return _unitOfWork.SaveChanges();
+
         }
 
- 
 
-        public GPetCategoryDto? GetPetCategoryById(int id) { 
-        
+
+        public GPetCategoryDto? GetPetCategoryById(int id)
+        {
+
             var PetCategory = _unitOfWork.PetCategoryRepository.GetByID(id);
-            if (PetCategory is not null) {
-                return new GPetCategoryDto() { Name = PetCategory.Name,Id= PetCategory.Id };
+            if (PetCategory is not null)
+            {
+                return new GPetCategoryDto() { Name = PetCategory.Name, Id = PetCategory.Id };
             }
             return null;
-        
+
         }
 
         public int UpdatePetCategory(UPetCategoryDto UPetCategoryDto)
@@ -77,12 +80,13 @@ namespace PetConnect.BLL.Services.Classes
         {
             var PetCategory = _unitOfWork.PetCategoryRepository.GetByID(id);
 
-            if (PetCategory is not null) {
+            if (PetCategory is not null)
+            {
                 _unitOfWork.PetCategoryRepository.Delete(PetCategory);
                 return _unitOfWork.SaveChanges();
             }
             return 0;
-          
+
 
         }
 
