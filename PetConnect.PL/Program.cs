@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PetConnect.BLL.Common.AttachmentServices;
 using PetConnect.BLL.Services.Classes;
 using PetConnect.BLL.Services.Interfaces;
 using PetConnect.DAL.Data;
@@ -29,6 +30,8 @@ namespace PetConnect.PL
 
 
             builder.Services.AddScoped<IDoctorService, DoctorService>();
+            builder.Services.AddScoped<IAttachmentService, AttachmentService>();
+            
 
             #endregion
 

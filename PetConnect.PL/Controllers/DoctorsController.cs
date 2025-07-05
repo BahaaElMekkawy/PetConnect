@@ -4,16 +4,19 @@ using PetConnect.BLL.Services.Classes;
 using PetConnect.DAL.Data.Models;
 using PetConnect.BLL.Services.DTO.Doctor;
 using PetConnect.DAL.Data.Enums;
+using PetConnect.BLL.Common.AttachmentServices;
 
 namespace PetConnect.PL.Controllers
 {
     public class DoctorsController : Controller
     {
         private readonly IDoctorService doctorService;
+        private readonly IAttachmentService attachmentService;
 
-        public DoctorsController(IDoctorService _doctorService)
+        public DoctorsController(IDoctorService _doctorService, IAttachmentService _attachmentService)
         {
             doctorService = _doctorService;
+            attachmentService = _attachmentService;
         }
         public IActionResult Index(string? name, decimal? maxPrice, PetSpecialty? specialty)
         {
@@ -77,8 +80,11 @@ namespace PetConnect.PL.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(DoctorDetailsDTO dto)
+        public async Task<IActionResult> Edit(DoctorDetailsDTO dto )
         {
+            //ModelState.Remove("ImgUrl");
+            //ModelState.Remove("CertificateUrl");
+
             if (!ModelState.IsValid)
             {
                 return View(dto); // Return with validation messages
@@ -86,7 +92,54 @@ namespace PetConnect.PL.Controllers
 
             try
             {
-                doctorService.Update(dto);
+
+                var existingDoctor = doctorService.GetByID(dto.Id);
+
+
+                if (dto.ImageFile != null)
+                {
+                    var fileName = await attachmentService.UploadAsync(dto.ImageFile, Path.Combine("img", "doctors"));
+
+                    if (fileName != null)
+                    {
+                        dto.ImgUrl = $"/assets/img/doctors/{fileName}";
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("ImageFile", "Invalid file. Please upload a PNG, JPG, JPEG or PDF under 2MB.");
+                        return View(dto);
+                    }
+                }
+                else
+                {
+                    if(existingDoctor!=null)
+                    dto.ImgUrl = existingDoctor.ImgUrl;
+                }
+
+
+
+                if (dto.CertificateFile != null)
+                {
+                    var fileName = await attachmentService.UploadAsync(dto.CertificateFile, Path.Combine("img", "certificates"));
+
+                    if (fileName != null)
+                    {
+                        dto.CertificateUrl = $"/assets/img/certificates/{fileName}";
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("ImageFile", "Invalid file. Please upload a PNG, JPG, JPEG or PDF under 2MB.");
+                        return View(dto);
+                    }
+                }
+                else
+                {
+                    if (existingDoctor != null)
+                    dto.CertificateUrl = existingDoctor.CertificateUrl;
+                }
+
+
+                    doctorService.Update(dto);
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
