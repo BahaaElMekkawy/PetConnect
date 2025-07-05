@@ -10,8 +10,4 @@
     <ProjectReference Include="..\PetConnect.DAL\PetConnect.DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

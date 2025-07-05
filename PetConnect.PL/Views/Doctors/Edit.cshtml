@@ -1,0 +1,90 @@
+﻿@model PetConnect.BLL.Services.DTO.Doctor.DoctorDetailsDTO
+@using PetConnect.DAL.Data.Enums
+
+@{
+    Layout = "_NewLayout";
+    ViewData["Title"] = "Edit Doctor";
+}
+
+<section id="hero" class="hero section pb-3">
+    <div class="container section-title aos-init aos-animate pb-0" data-aos="fade-up">
+        <h2>Hello, Dr. @Model.FName</h2>
+        <h3>Edit  profile</h3>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <form asp-action="Edit" method="post" class="row g-3">
+            @* Hidden ID *@
+            <input type="hidden" asp-for="Id" />
+
+            <div class="col-md-6">
+                <label asp-for="FName" class="form-label"></label>
+                <input asp-for="FName" class="form-control" />
+                <span asp-validation-for="FName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="LName" class="form-label"></label>
+                <input asp-for="LName" class="form-control" />
+                <span asp-validation-for="LName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Gender" class="form-label"></label>
+                <select asp-for="Gender" class="form-select" asp-items="Html.GetEnumSelectList<Gender>()">
+                    <option disabled  value="">-- Select Gender --</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="PetSpecialty" class="form-label"></label>
+                <select asp-for="PetSpecialty" class="form-select" asp-items="Html.GetEnumSelectList<PetSpecialty>()">
+                    <option disabled  value="">-- Select Specialty --</option>
+                </select>
+                <span asp-validation-for="PetSpecialty" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="PricePerHour" class="form-label"></label>
+                <input asp-for="PricePerHour" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="PricePerHour" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="CertificateUrl" class="form-label"></label>
+                <input asp-for="CertificateUrl" class="form-control" />
+                <span asp-validation-for="CertificateUrl" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="ImgUrl" class="form-label"></label>
+                <input asp-for="ImgUrl" class="form-control" />
+                <span asp-validation-for="ImgUrl" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Street" class="form-label"></label>
+                <input asp-for="Street" class="form-control" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="City" class="form-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-move">Save Changes</button>
+                <a asp-action="Index" class=" btn btn-outline-primary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

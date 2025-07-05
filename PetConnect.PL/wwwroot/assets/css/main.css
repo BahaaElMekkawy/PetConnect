@@ -175,7 +175,8 @@ h6 {
 }
 
 .header .btn-getstarted,
-.header .btn-getstarted:focus {
+.header .btn-getstarted:focus,
+.btn-move{
   color: var(--contrast-color);
   background: var(--accent-color);
   font-size: 14px;
@@ -186,7 +187,8 @@ h6 {
 }
 
 .header .btn-getstarted:hover,
-.header .btn-getstarted:focus:hover {
+.header .btn-getstarted:focus:hover,
+.btn-move:hover{
   color: var(--contrast-color);
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }

@@ -5,7 +5,8 @@
 @{
     Layout = "_NewLayout";
 }
-
+@using PetConnect.BLL.Services.DTO.Doctor
+@model List<DoctorDetailsDTO>
 
 
 
@@ -484,122 +485,47 @@
 
     <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-5">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var doctor = Model[i];
+                var delay = 100 * (i + 1); // 100, 200, 300, 400...
 
-            <!-- Vet 1 -->
-            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
-                <div class="team-card text-center">
-                    <div class="team-image">
-                        <img src="assets/img/person/person-m-1.webp" class="img-fluid" alt="Dr. Daniel Mitchell">
-                        <div class="team-overlay">
-                            <p>Certified vet with over 10 years of experience in emergency and preventive animal care.</p>
+                <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="@delay">
+                    <div class="team-card text-center">
+                        <div class="team-image">
+                            <img src="@doctor.ImgUrl" class="img-fluid" alt="Dr. @doctor.FName @doctor.LName">
+                            <div class="team-overlay">
+                                <p>
+                                    @doctor.PetSpecialty specialist with a rate of
+                                    <strong>@doctor.PricePerHour.ToString("F2") EGP</strong> per hour.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="team-content">
-                        <h4>
-                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="1" class="text-dark text-decoration-none">
-                                Dr. Daniel Mitchell
-                            </a>
-                        </h4>
-                        <span class="position">Senior Veterinarian</span>
-                        <div class="rating mt-2">
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star text-dark-yellow"></i>
+                        <div class="team-content">
+                            <h4>
+                                <a asp-controller="Doctors" asp-action="Profile" asp-route-id="@doctor.Id" class="text-dark text-decoration-none">
+                                    Dr. @doctor.FName @doctor.LName
+                                </a>
+                            </h4>
+                            <span class="position">@doctor.PetSpecialty</span>
+                            <div class="rating mt-2">
+                                <i class="bi bi-star-fill text-dark-yellow"></i>
+                                <i class="bi bi-star-fill text-dark-yellow"></i>
+                                <i class="bi bi-star-fill text-dark-yellow"></i>
+                                <i class="bi bi-star-half text-dark-yellow"></i>
+                                <i class="bi bi-star text-dark-yellow"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Vet 2 -->
-            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
-                <div class="team-card text-center">
-                    <div class="team-image">
-                        <img src="assets/img/person/person-f-6.webp" class="img-fluid" alt="Dr. Rebecca Taylor">
-                        <div class="team-overlay">
-                            <p>Specialist in small animal surgery and post-adoption rehabilitation programs.</p>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h4>
-                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="2" class="text-dark text-decoration-none">
-                                Dr. Rebecca Taylor
-                            </a>
-                        </h4>
-                        <span class="position">Surgical Vet Specialist</span>
-                        <div class="rating mt-2">
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-half text-dark-yellow"></i>
-                            <i class="bi bi-star text-dark-yellow"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vet 3 -->
-            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
-                <div class="team-card text-center">
-                    <div class="team-image">
-                        <img src="assets/img/person/person-m-6.webp" class="img-fluid" alt="Dr. Marcus Johnson">
-                        <div class="team-overlay">
-                            <p>Focused on preventive care, vaccinations, and animal nutrition guidance.</p>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h4>
-                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="3" class="text-dark text-decoration-none">
-                                Dr. Marcus Johnson
-                            </a>
-                        </h4>
-                        <span class="position">Preventive Care Expert</span>
-                        <div class="rating mt-2">
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vet 4 -->
-            <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
-                <div class="team-card text-center">
-                    <div class="team-image">
-                        <img src="assets/img/person/person-f-3.webp" class="img-fluid" alt="Dr. Jessica Parker">
-                        <div class="team-overlay">
-                            <p>Passionate about animal welfare, she leads public awareness and mobile vet programs.</p>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h4>
-                            <a asp-controller="Doctor" asp-action="Profile" asp-route-id="4" class="text-dark text-decoration-none">
-                                Dr. Jessica Parker
-                            </a>
-                        </h4>
-                        <span class="position">Community Health Lead</span>
-                        <div class="rating mt-2">
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star-fill text-dark-yellow"></i>
-                            <i class="bi bi-star text-dark-yellow"></i>
-                            <i class="bi bi-star text-dark-yellow"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            }
         </div>
+
         <div class="mt-5 text-center">
-            <a asp-controller="doctors" asp-action="index" class="btn btn-primary btn-md rounded-0">All Vets</a>
+            <a asp-controller="Doctors" asp-action="Index" class="btn btn-primary btn-md rounded-0">All Vets</a>
         </div>
     </div>
 </section>
-
 
 
 <section id="adoptable-pets" class="team section bg-light">
