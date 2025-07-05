@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PetConnect.BLL.Services.DTO;
+using PetConnect.DAL.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,8 @@ namespace PetConnect.BLL.Services.Interfaces
 {
     public interface IPetService
     {
+
+
+        void AddPet(AddedPetDto addedPet);
     }
 }

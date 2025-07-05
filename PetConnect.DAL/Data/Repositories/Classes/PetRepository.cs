@@ -16,6 +16,7 @@ namespace PetConnect.DAL.Data.Repositories.Classes
         public PetRepository(AppDbContext _context) : base(_context)
         {
             context = _context;
+           
         }
     }
 }

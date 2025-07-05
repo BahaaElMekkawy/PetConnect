@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PetConnect.DAL.Data;
 using PetConnect.DAL.Data.Identity;
+using PetConnect.DAL.Services;
 
 namespace PetConnect.PL
 {
@@ -21,7 +22,7 @@ namespace PetConnect.PL
             });
             //Repositories Services register
             RepositoriesCollectionExtensions.AddDalRepositories(builder.Services);
-
+            ServicesCollectionExtensions.AddBLLRepositories(builder.Services);
             builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
                 

@@ -22,13 +22,14 @@ namespace PetConnect.DAL.Data.GenericRepository
         public void Delete(T entity)
         {
             context.Set<T>().Remove(entity);
+           
         }
         public IEnumerable<T> GetAll(bool withracking = false)
         {
             if (withracking)
                 return context.Set<T>().ToList();
             else
-               return context.Set<T>().AsNoTracking().ToList();
+               return context.Set<T>().AsNoTracking().ToList();     
 
         }
 

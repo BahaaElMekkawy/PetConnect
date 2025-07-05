@@ -16,6 +16,12 @@ namespace PetConnect.DAL.Data.Repositories.Classes
         public PetCategoryRepository(AppDbContext _context) : base(_context)
         {
             context = _context;
+         
+        }
+
+        public int GetCountOfCategories()
+        {
+         return  context.PetCategory.Count();
         }
     }
 }
