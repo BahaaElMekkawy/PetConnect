@@ -38,14 +38,14 @@ namespace PetConnect.PL.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View();
+            return View(AddedPetCategoryDTO); 
 
         }
         #endregion
 
 
 
-        [HttpGet]
+        [HttpGet] 
         public IActionResult EditDelete(int? id)
         {
             if (id is null)
@@ -77,13 +77,17 @@ namespace PetConnect.PL.Controllers
         public IActionResult Delete(int id)
         {
 
-            if (ModelState.IsValid && _petCategoryService.DeletePetCategory(id) > 0)
+            if (_petCategoryService.DeletePetCategory(id) > 0)
             {
                 return RedirectToAction(nameof(Index));
             }
 
             return RedirectToAction(nameof(Index));
 
+        
         }
+
+
+
     }
 }

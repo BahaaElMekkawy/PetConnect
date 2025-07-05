@@ -27,8 +27,8 @@ namespace PetConnect.BLL.Services.Classes
 
             foreach (var PetBread in petBreeds)
             {
-
-                GPetBreadDtos.Add(new GPetBreadDto() {Id= PetBread.Id,Name=PetBread.Name,CategoryName=PetBread.CategoryId });
+               var Category= _unitOfWork.PetCategoryRepository.GetByID(PetBread.CategoryId);
+                GPetBreadDtos.Add(new GPetBreadDto() {Id= PetBread.Id,Name=PetBread.Name,CategoryName= Category.Name});
             }
             return GPetBreadDtos;
         }

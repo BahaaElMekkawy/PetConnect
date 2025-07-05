@@ -1,4 +1,4 @@
-﻿@model AddedPetBreadDto
+﻿@model AddPetBreadViewModel
 
 @{
     ViewData["Title"] = "Add New Pet Breed";
@@ -21,15 +21,21 @@
                               class="needs-validation">
 
                             <div class="mb-3">
-                                <label asp-for="Name" class="form-label"></label>
-                                <input asp-for="Name" class="form-control" placeholder="Enter breed name" />
-                                <span asp-validation-for="Name" class="text-danger"></span>
+                                <label asp-for="PetBreadDto.Name" class="form-label"></label>
+                                <input asp-for="PetBreadDto.Name" class="form-control" placeholder="Enter breed name" />
+                                <span asp-validation-for="PetBreadDto.Name" class="text-danger"></span>
                             </div>
 
                             <div class="mb-3">
-                                <label asp-for="CategoryId" class="form-label"></label>
-                                <input asp-for="CategoryId" class="form-control" placeholder="Enter category ID" />
-                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                <label asp-for="PetBreadDto.CategoryId" class="form-label"></label>
+                                <select asp-for="PetBreadDto.CategoryId" class="form-select">
+                                    <option value="">-- Select Category --</option>
+                                    @foreach (var category in Model.GPetCategoryDtos)
+                                    {
+                                        <option value="@category.Id">@category.Name</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="PetBreadDto.CategoryId" class="text-danger"></span>
                             </div>
 
                             <button type="submit" class="btn btn-success w-100">

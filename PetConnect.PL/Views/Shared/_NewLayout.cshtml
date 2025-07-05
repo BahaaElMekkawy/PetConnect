@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title - Pet Connect</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Starter Page - PetConnect</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -28,7 +29,8 @@
 </head>
 
 <body class="starter-page-page">
-    <!-- ======= Header ======= -->
+
+    <!-- ======= Header ======= -->
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container position-relative d-flex align-items-center justify-content-between">
             <a asp-action="Index" asp-controller="Home" class="logo d-flex align-items-center me-auto me-xl-0">
@@ -56,7 +58,7 @@
 
                     <li><a asp-action="Index" asp-controller="Contact">Contact</a></li>
 
-                    <!-- Mobile buttons -->
+                    <!-- Mobile buttons -->
                     <div class="btns d-block d-xl-none">
                         <a class="btn-getstarted m-2" href="#about">Login</a>
                         <a class="btn-getstarted m-2" href="#about">Register</a>
@@ -65,34 +67,31 @@
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
-            <!-- Desktop buttons -->
+            <!-- Desktop buttons -->
             <div class="btns d-none d-xl-block">
                 <a class="btn-getstarted" href="#about">Login</a>
                 <a class="btn-getstarted" href="#about">Register</a>
             </div>
         </div>
     </header>
-    <!-- End Header -->
-    <!-- ======= Main content ======= -->
+    <!-- End Header -->
+    <!-- ======= Main Content ======= -->
     @RenderBody()
     <!-- =========================== -->
-    <!-- ======= Footer ======= -->
+    <!-- ======= Footer ======= -->
     <footer id="footer" class="footer light-background">
         <div class="container footer-top">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
-                    <a asp-action="Index" asp-controller="Home"
-                       class="logo d-flex align-items-center">
-                        <img src="~/assets/img/pets/logo-100.png"
-                             alt="logo"
-                             asp-append-version="true" />
+                    <a asp-action="Index" asp-controller="Home" class="logo d-flex align-items-center">
+                        <img src="~/assets/img/pets/logo-100.png" alt="logo" />
                         <span class="sitename">PetConnect</span>
                     </a>
 
                     <div class="footer-contact pt-3">
-                        <p>ITI ‑ .NET track</p>
-                        <p>Zagazig University branch</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+                        <p>ITI - .NET track</p>
+                        <p>Zagazig University branch</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
                         <p><strong>Email:</strong> <span>info@example.com</span></p>
                     </div>
 
@@ -105,43 +104,43 @@
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
+                    <h4>Useful Links</h4>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
+                        <li><a href="#">About us</a></li>
                         <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="#">Privacy policy</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Our Services</h4>
+                    <h4>Our Services</h4>
                     <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Product Management</a></li>
                         <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#">Graphic Design</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Hic solutasetp</h4>
+                    <h4>Hic solutasetp</h4>
                     <ul>
-                        <li><a href="#">Molestiae accusamus iure</a></li>
-                        <li><a href="#">Excepturi dignissimos</a></li>
-                        <li><a href="#">Suscipit distinctio</a></li>
+                        <li><a href="#">Molestiae accusamus iure</a></li>
+                        <li><a href="#">Excepturi dignissimos</a></li>
+                        <li><a href="#">Suscipit distinctio</a></li>
                         <li><a href="#">Dilecta</a></li>
-                        <li><a href="#">Sit quas consectetur</a></li>
+                        <li><a href="#">Sit quas consectetur</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Nobis illum</h4>
+                    <h4>Nobis illum</h4>
                     <ul>
                         <li><a href="#">Ipsam</a></li>
-                        <li><a href="#">Laudantium dolorum</a></li>
+                        <li><a href="#">Laudantium dolorum</a></li>
                         <li><a href="#">Dinera</a></li>
                         <li><a href="#">Trodelas</a></li>
                         <li><a href="#">Flexo</a></li>
@@ -151,16 +150,15 @@
         </div>
 
         <div class="container copyright text-center mt-4">
-            <p>© <strong class="px-1 sitename">PetConnect</strong> All Rights Reserved</p>
+            <p>© <strong class="px-1 sitename">PetConnect</strong> All Rights Reserved</p>
             <div class="credits">
-                Designed by <a href="#">Team #3</a>
+                Designed by <a href="#">Team #3</a>
             </div>
         </div>
     </footer>
-    <!-- End Footer -->
-    <!-- ======= Utilities ======= -->
-    <a href="#" id="scroll-top"
-       class="scroll-top d-flex align-items-center justify-content-center">
+    <!-- End Footer -->
+    <!-- ======= Utilities ======= -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>
     </a>
 
@@ -175,12 +173,14 @@
     <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+    <!-- Main JS File -->
+    <script src="~/assets/js/main.js"></script>
 
+    <!-- jQuery -->
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
 
+    <!-- Validation Scripts Partial -->
 
-    <!-- Validation (jQuery) -->
-    <script src="~/lib/jquery/dist/jquery.min.js"
-            asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

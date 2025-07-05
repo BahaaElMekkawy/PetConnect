@@ -1,4 +1,4 @@
-﻿@model UPetBreadDto
+﻿@model UpdatePetBreadViewModel
 
 @{
     ViewData["Title"] = "Edit or Delete Pet Breed";
@@ -6,6 +6,7 @@
 
 <main class="main py-5">
     <div class="container">
+
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
 
@@ -18,22 +19,31 @@
                         <!-- ======= Edit Form ======= -->
                         <form asp-controller="PetBread"
                               asp-action="Edit"
-                              asp-route-id="@Model.Id"
                               method="post"
                               class="needs-validation">
 
-                 
+                            <!-- ✅ Hidden input for Id -->
+                            <input type="hidden" asp-for="UPetBreadDto.Id" />
 
                             <div class="mb-3">
-                                <label asp-for="Name" class="form-label"></label>
-                                <input asp-for="Name" class="form-control" placeholder="Enter breed name" />
-                                <span asp-validation-for="Name" class="text-danger"></span>
+                                <label asp-for="UPetBreadDto.Name" class="form-label"></label>
+                                <input asp-for="UPetBreadDto.Name" class="form-control" placeholder="Enter breed name" />
+                                <span asp-validation-for="UPetBreadDto.Name" class="text-danger"></span>
                             </div>
 
                             <div class="mb-3">
-                                <label asp-for="CategoryId" class="form-label"></label>
-                                <input asp-for="CategoryId" class="form-control" placeholder="Enter category ID" />
-                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                <label asp-for="UPetBreadDto.CategoryId" class="form-label"></label>
+                                <select asp-for="UPetBreadDto.CategoryId" class="form-select">
+                                    <option value="">-- Select Category --</option>
+                                    @foreach (var category in Model.GPetCategoryDtos)
+                                    {
+                                        <option value="@category.Id"
+                                                selected="@(category.Id == Model.UPetBreadDto.CategoryId)">
+                                            @category.Name
+                                        </option>
+                                    }
+                                </select>
+                                <span asp-validation-for="UPetBreadDto.CategoryId" class="text-danger"></span>
                             </div>
 
                             <button type="submit" class="btn btn-outline-primary w-100">
@@ -46,11 +56,12 @@
                         <!-- ======= Delete Form ======= -->
                         <form asp-controller="PetBread"
                               asp-action="Delete"
-                              asp-route-id="@Model.Id"
-                              method="post">
+                              method="post"
+                              asp-route-id="@Model.UPetBreadDto.Id"  >
+
 
                             <button type="submit" class="btn btn-outline-danger w-100">
-                                <i class="bi bi-trash me-1"></i> Delete 
+                                <i class="bi bi-trash me-1"></i> Delete
                             </button>
                         </form>
                     </div>
