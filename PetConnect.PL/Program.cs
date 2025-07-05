@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PetConnect.BLL.Common.AttachmentServices;
+using PetConnect.BLL.Services.Classes;
+using PetConnect.BLL.Services.Interfaces;
 using PetConnect.DAL.Data;
 using PetConnect.DAL.Data.Identity;
 using PetConnect.DAL.Services;
@@ -25,7 +28,12 @@ namespace PetConnect.PL
             ServicesCollectionExtensions.AddBLLRepositories(builder.Services);
             builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
-                
+
+
+            builder.Services.AddScoped<IDoctorService, DoctorService>();
+            builder.Services.AddScoped<IAttachmentService, AttachmentService>();
+            
+
             #endregion
 
             var app = builder.Build();
