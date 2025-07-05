@@ -1,0 +1,49 @@
+﻿@model AddedPetBreadDto
+
+@{
+    ViewData["Title"] = "Add New Pet Breed";
+}
+
+<main class="main py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+
+                <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4 text-success">
+                            <i class="bi bi-plus-circle me-2"></i> @ViewData["Title"]
+                        </h2>
+
+                        <form asp-action="Add"
+                              asp-controller="PetBread"
+                              method="post"
+                              class="needs-validation">
+
+                            <div class="mb-3">
+                                <label asp-for="Name" class="form-label"></label>
+                                <input asp-for="Name" class="form-control" placeholder="Enter breed name" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="CategoryId" class="form-label"></label>
+                                <input asp-for="CategoryId" class="form-control" placeholder="Enter category ID" />
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="bi bi-check-circle me-1"></i> Add Breed
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
