@@ -71,7 +71,32 @@ namespace PetConnect.BLL.Services.Classes
             return false;
         }
 
+        public async Task<bool> CustomerRegister(CustomerRegisterDTO model)
+        {
+            var customer = new Customer
+            {
+                FName = model.FName,
+                LName = model.LName,
+                Email = model.Email,
+                UserName = model.Email,
+                ImgUrl = model.ImageUrl,
+                Gender = model.Gender,
+                Address = new Address
+                {
+                    Country = model.Country,
+                    City = model.City,
+                    Street = model.Street
+                }
+            };
+            var result = await userManager.CreateAsync(customer, model.Password);
 
+            if (result.Succeeded)
+            {
+                await userManager.AddToRoleAsync(customer, "Customer");
+                return true;
+            }
+            return false;
+        }
 
 
 
