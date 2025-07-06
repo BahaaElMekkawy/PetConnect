@@ -4,6 +4,9 @@ using PetConnect.BLL.Services.Classes;
 using PetConnect.DAL.Data.Models;
 using PetConnect.BLL.Services.DTO.Doctor;
 using PetConnect.DAL.Data.Enums;
+using PetConnect.DAL.Data.Repositories.Interfaces;
+using PetConnect.DAL.Data;
+using PetConnect.DAL.Data.Repositories.Classes;
 
 namespace PetConnect.PL.Controllers
 {
@@ -79,6 +82,7 @@ namespace PetConnect.PL.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(DoctorDetailsDTO dto)
         {
+
             if (!ModelState.IsValid)
             {
                 return View(dto); // Return with validation messages
@@ -94,6 +98,8 @@ namespace PetConnect.PL.Controllers
                 ModelState.AddModelError("", $"Update failed: {ex.Message}");
                 return View(dto);
             }
+
+
         }
     }
 }
