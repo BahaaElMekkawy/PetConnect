@@ -5,6 +5,10 @@ using PetConnect.DAL.Data.Models;
 using PetConnect.BLL.Services.DTO.Doctor;
 using PetConnect.DAL.Data.Enums;
 using PetConnect.BLL.Common.AttachmentServices;
+using PetConnect.DAL.Data.Repositories.Interfaces;
+using PetConnect.DAL.Data;
+using PetConnect.DAL.Data.Repositories.Classes;
+
 
 namespace PetConnect.PL.Controllers
 {
@@ -82,8 +86,7 @@ namespace PetConnect.PL.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(DoctorDetailsDTO dto )
         {
-            //ModelState.Remove("ImgUrl");
-            //ModelState.Remove("CertificateUrl");
+
 
             if (!ModelState.IsValid)
             {
@@ -147,6 +150,8 @@ namespace PetConnect.PL.Controllers
                 ModelState.AddModelError("", $"Update failed: {ex.Message}");
                 return View(dto);
             }
+
+
         }
     }
 }

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PetConnect.DAL.Data.Repositories.Interfaces;
-    public interface ICustomerPetAdpotionsRepository
+namespace PetConnect.BLL.Services.DTO.Account
+{
+    public class RegisterDTO
     {
+        public string Role { get; set; }
     }
-
+}

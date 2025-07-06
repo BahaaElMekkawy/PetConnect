@@ -2,12 +2,28 @@
 @using PetConnect.BLL.Services.DTO.PetDto
 @using PetConnect.DAL.Data.Enums
 
-<div class="container mt-5">
+
+
+
+
+
+
+<section id="hero" class="hero section pb-0">
+    <div class="container section-title aos-init aos-animate pb-0" data-aos="fade-up">
+        <h2>@Model.Name</h2>
+        <p>Find your new best friend and give a rescued pet a loving home.</p>
+
+    </div>
+</section>
+
+
+
+<div class="container mt-5 pb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card shadow-lg rounded-4 p-3">
+            <div class="card shadow-lg rounded-4 p-3 py-5">
                 <div class="row g-3 align-items-center">
-                    <div class="col-md-5">
+                    <div class="col-md-5 justify-content-center d-flex">
                         <img src="~/assets/PetImages/@Model.ImgUrl" class="img-fluid rounded-3" alt="@Model.Name" />
                     </div>
                     <div class="col-md-7">

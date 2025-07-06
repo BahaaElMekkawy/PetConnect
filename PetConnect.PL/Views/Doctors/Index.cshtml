@@ -85,6 +85,11 @@
             @foreach (var doctor in Model)
             {
                 <div class="col-md-6 col-lg-3 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+                     <a asp-controller="Doctors"
+                                   asp-action="Profile"
+                                   asp-route-id="@doctor.Id"
+                                   class="text-dark text-decoration-none">
+                    
                     <div class="team-card text-center">
                         <div class="team-image">
                             <img src="@doctor.ImgUrl"
@@ -116,6 +121,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                 </div>
             }
         </div>

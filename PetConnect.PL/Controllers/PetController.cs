@@ -20,7 +20,7 @@ namespace PetConnect.PL.Controllers
         // baseUrl/Pet/Index   >  Get All Pets
         public IActionResult Index()
         {
-            var model = _petService.GetAllPets(4);
+            var model = _petService.GetAllPets(40);
             return View(model);
         }
         public IActionResult PetDetails(int? id)

@@ -12,7 +12,7 @@ namespace PetConnect.BLL.Common.AttachmentServices
     {
         private readonly List<string> _allowedExtensions = new() { ".png", ".jpg", ".jpeg" , ".pdf" };
 
-        private const int _allowedMaxSize = 2_097_152; // Can only take bytes
+        private const int _allowedMaxSize = 2_097_152; //Can only take bytes
 
         public async Task<string?> UploadAsync(IFormFile file, string folderName)
         {

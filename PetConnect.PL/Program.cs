@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PetConnect.BLL.Common.AttachmentServices;
@@ -17,6 +18,10 @@ namespace PetConnect.PL
 
             #region Services
             // Add services to the container.
+
+            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
@@ -26,10 +31,10 @@ namespace PetConnect.PL
             //Repositories Services register
             RepositoriesCollectionExtensions.AddDalRepositories(builder.Services);
             ServicesCollectionExtensions.AddBLLRepositories(builder.Services);
-            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
-                .AddEntityFrameworkStores<AppDbContext>();
+          
 
 
+            builder.Services.AddScoped<IAccountService, AccountService>();
             builder.Services.AddScoped<IDoctorService, DoctorService>();
             builder.Services.AddScoped<IAttachmentService, AttachmentService>();
             

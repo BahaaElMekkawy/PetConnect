@@ -2,6 +2,8 @@
 using PetConnect.BLL.Services.Interfaces;
 using PetConnect.DAL.Data.Enums;
 using PetConnect.DAL.Data.Models;
+using PetConnect.DAL.Data.Repositories.Classes;
+using PetConnect.DAL.Data.Repositories.Interfaces;
 using PetConnect.DAL.UnitofWork;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,11 @@ namespace PetConnect.BLL.Services.Classes
     {
         private readonly IUnitOfWork UOW;
 
-        public DoctorService(IUnitOfWork _UOW)
+
+        public DoctorService(IUnitOfWork _UOW )
         {
             UOW = _UOW;
         }
-
         // Return list of doctor DTOs 
         public IEnumerable<DoctorDetailsDTO> GetAll()
         {

@@ -9,7 +9,7 @@ using PetConnect.DAL.Data.Repositories.Interfaces;
 
 namespace PetConnect.DAL.Data.Repositories.Classes
 {
-    public class ShelterAddedPetsRepository : GenericRepository<ShelterAddedPets>, IShelterAddedPetsRepository
+    public class ShelterAddedPetsRepository : GenericRepository<ShelterAddedPets> , IShelterAddedPetsRepository
     {
         private readonly AppDbContext context;
 
@@ -17,5 +17,6 @@ namespace PetConnect.DAL.Data.Repositories.Classes
         {
             context = _context;
         }
+
     }
 }
