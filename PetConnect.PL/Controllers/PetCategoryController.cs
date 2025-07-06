@@ -15,7 +15,7 @@ namespace PetConnect.PL.Controllers
         #region GetAll
         public IActionResult Index()
         {
-            var Model = _petCategoryService.GetAllCategories(false);
+            var Model = _petCategoryService.GetAllCategoriesWithStatistics(false);
             return View(Model);
         }
         #endregion

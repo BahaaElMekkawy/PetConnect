@@ -10,8 +10,8 @@ namespace PetConnect.BLL.Services.Interfaces
     public interface IPetCategoryService
     {
         int AddPetCategory(AddedPetCategoryDTO AddedPetCategoryDTO);
-        StatisticsGPetCategoryDto GetAllCategories(bool withTracking = false);
-
+        StatisticsGPetCategoryDto GetAllCategoriesWithStatistics(bool withTracking = false);
+        IEnumerable<GPetCategoryDto> GetAllCategories(bool withTracking = false);
         GPetCategoryDto? GetPetCategoryById(int id);
         int UpdatePetCategory(UPetCategoryDto AUDPetCategoryDto);
         int DeletePetCategory(int id);

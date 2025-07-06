@@ -45,11 +45,14 @@ namespace PetConnect.BLL.Services.Classes
             
         }
 
-        public IEnumerable<PetDataDto> GetAllPets()
+        public IEnumerable<PetDataDto> GetAllPets(int? count)
         {
             List<PetDataDto> petDatas = new List<PetDataDto>();
-
-            var PetList = _unitOfWork.PetRepository.GetAll();
+            IEnumerable<Pet> PetList;
+            if (count is null)
+                PetList = _unitOfWork.PetRepository.GetAll();
+            else
+                PetList = _unitOfWork.PetRepository.GetAll().Take(count.Value);
             foreach (var Pet in PetList)
             {
                 petDatas.Add(new PetDataDto()
@@ -67,8 +70,8 @@ namespace PetConnect.BLL.Services.Classes
         {
            
             var pet =  _unitOfWork.PetRepository.GetByID(id);
-          var bread =   _unitOfWork.PetBreedRepository.GetByID(pet.BreedId);
-          var Category =   _unitOfWork.PetCategoryRepository.GetByID(bread.CategoryId);
+            var bread =   _unitOfWork.PetBreedRepository.GetByID(pet.BreedId);
+            var Category =   _unitOfWork.PetCategoryRepository.GetByID(bread.CategoryId);
             PetDetailsDto Pet = new PetDetailsDto() {Name = pet.Name , IsApproved = pet.IsApproved ,BreadName =bread.Name  ,
             ImgUrl = pet.ImgUrl , Ownership = pet.Ownership , Status = pet.Status , CategoryName = Category.Name};
             return Pet;

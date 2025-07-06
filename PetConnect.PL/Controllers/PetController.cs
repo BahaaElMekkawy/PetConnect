@@ -9,23 +9,25 @@ namespace PetConnect.PL.Controllers
     public class PetController : Controller
     {
         private readonly IPetService _petService;
+        private readonly IPetCategoryService _petCategoryService;
 
-        public PetController(IPetService petService)
+        public PetController(IPetService petService, IPetCategoryService petCategoryService)
         {
             _petService = petService;
+            _petCategoryService = petCategoryService;
         }
 
         // baseUrl/Pet/Index   >  Get All Pets
         public IActionResult Index()
         {
-            var model = _petService.GetAllPets();
+            var model = _petService.GetAllPets(4);
             return View(model);
         }
-        public IActionResult PetDetails(int id)
+        public IActionResult PetDetails(int? id)
         {
             if (id == null)
                 return BadRequest();
-           var model =  _petService.GetPet(id);
+           var model =  _petService.GetPet(id.Value);
             if (model == null)
                 return NotFound();
             return View(model);
@@ -34,7 +36,7 @@ namespace PetConnect.PL.Controllers
         [HttpGet]
         public IActionResult AddPet()
         {
-            //ViewBag.ListBread = new SelectList(_petService.GetAllPets().ToList() , "BreadId" , "")
+            ViewBag.Categories = _petCategoryService.GetAllCategories();
             return View();
         }
         [HttpPost]

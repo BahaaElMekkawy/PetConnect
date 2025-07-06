@@ -22,9 +22,15 @@ namespace PetConnect.PL.Controllers
             return View(Model);
         }
 
+        public IActionResult GetBreadsByCategory(int id) {
+
+          var BradList=  _PetBreadService.GetBreadsByCategoryId(id);
+            return Json(BradList);
+        }
+
         [HttpGet]
         public IActionResult Add() { 
-        var Categories = _PetCategoryService.GetAllCategories().GPetCategoryDto;
+        var Categories = _PetCategoryService.GetAllCategoriesWithStatistics().GPetCategoryDto;
 
             var viewModel = new AddPetBreadViewModel();
             viewModel.GPetCategoryDtos = Categories;
@@ -38,7 +44,7 @@ namespace PetConnect.PL.Controllers
             
             }
 
-            AddPetBreadViewModel.GPetCategoryDtos = _PetCategoryService.GetAllCategories().GPetCategoryDto;
+            AddPetBreadViewModel.GPetCategoryDtos = _PetCategoryService.GetAllCategoriesWithStatistics().GPetCategoryDto;
             return View(AddPetBreadViewModel);
         }
 
@@ -50,7 +56,7 @@ namespace PetConnect.PL.Controllers
                 return NotFound();
 
             var viewModel = new UpdatePetBreadViewModel();
-            viewModel.GPetCategoryDtos = _PetCategoryService.GetAllCategories().GPetCategoryDto;
+            viewModel.GPetCategoryDtos = _PetCategoryService.GetAllCategoriesWithStatistics().GPetCategoryDto;
             viewModel.UPetBreadDto = Model;
 
             return View(viewModel);
@@ -64,7 +70,7 @@ namespace PetConnect.PL.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            UpdatePetBreadViewModel.GPetCategoryDtos = _PetCategoryService.GetAllCategories().GPetCategoryDto;
+            UpdatePetBreadViewModel.GPetCategoryDtos = _PetCategoryService.GetAllCategoriesWithStatistics().GPetCategoryDto;
             return View(UpdatePetBreadViewModel);
         }
         public IActionResult Delete(int? id) {

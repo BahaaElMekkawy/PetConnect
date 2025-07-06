@@ -20,7 +20,7 @@ namespace PetConnect.BLL.Services.Classes
         }
 
 
-        public StatisticsGPetCategoryDto GetAllCategories(bool withTracking = false)
+        public StatisticsGPetCategoryDto GetAllCategoriesWithStatistics(bool withTracking = false)
         {
             var PetCategoryList = _unitOfWork.PetCategoryRepository.GetAll(withTracking).ToList();
 
@@ -38,6 +38,17 @@ namespace PetConnect.BLL.Services.Classes
             return statisticsGPetCategoryDto;
         }
 
+        public IEnumerable<GPetCategoryDto> GetAllCategories(bool withTracking = false)
+        {
+            var PetCategoryList = _unitOfWork.PetCategoryRepository.GetAll(withTracking).ToList();
+
+            List<GPetCategoryDto> PetCategoryDtoList = new List<GPetCategoryDto>();
+            foreach (var petCategory in PetCategoryList)
+            {
+                PetCategoryDtoList.Add(new GPetCategoryDto() { Name = petCategory.Name, Id = petCategory.Id });
+            }
+            return PetCategoryDtoList;
+        }
         public int AddPetCategory(AddedPetCategoryDTO AddedPetCategoryDTO)
         {
             var PetCategory = new PetCategory()
@@ -89,7 +100,6 @@ namespace PetConnect.BLL.Services.Classes
 
 
         }
-
 
     }
 }
