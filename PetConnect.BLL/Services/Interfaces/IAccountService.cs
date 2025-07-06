@@ -13,6 +13,7 @@ namespace PetConnect.BLL.Services.Interfaces
         public Task<ApplicationUser> SignIn(SignInDTO model);
         public Task<List<string>> GetAllRolesAsync();
         public Task<bool> DoctorRegister(DoctorRegisterDTO model);
+        public Task<bool> CustomerRegister(CustomerRegisterDTO model);
 
 
     }
