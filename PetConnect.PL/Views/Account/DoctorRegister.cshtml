@@ -6,10 +6,20 @@
     Layout = "_NewLayout";
 }
 
-<div class="container mt-5">
+<section id="hero" class="hero section mb-0 pb-0">
+    <div class="container section-title aos-init aos-animate pb-0" data-aos="fade-up">
+        <h2>Sign Up</h2>
+        <p>*****************</p>
+
+    </div>
+</section>
+
+
+
+<div class="container mt-5 mb-5">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10">
-            <h2 class="text-center mb-4">Register as a Doctor</h2>
+            @* <h2 class="text-center mb-4">Register as a Doctor</h2> *@
 
             <form method="post" asp-action="DoctorRegisterPost">
                 @* -------------- SUMMARY -------------- *@
@@ -113,7 +123,7 @@
 
                 @* -------------- SUBMIT -------------- *@
                 <div class="d-grid mt-4">
-                    <button type="submit" class="btn btn-success">Register</button>
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </div>
             </form>
 

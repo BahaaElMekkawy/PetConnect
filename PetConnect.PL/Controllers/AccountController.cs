@@ -29,18 +29,33 @@ namespace PetConnect.PL.Controllers
         {
             return View();
         }
+ 
+
+
+
+
         [HttpPost]
-        public async Task<IActionResult> SignIn(SignInDTO model)
+    public async Task<IActionResult> SignIn(SignInDTO model)
+    {
+        if (!ModelState.IsValid)
         {
-            if (ModelState.IsValid)
-            {
-                bool isCorrectUser = await accountService.SignIn(model);
-                if (isCorrectUser)
-                    return RedirectToAction("Index", "Home");
-            }
-            ModelState.AddModelError("", "Username or Password is Incorrect !!!");
             return View("SignIn", model);
         }
+
+            var user = await accountService.SignIn(model); // Return ApplicationUser or null
+
+            if (user != null)
+        {
+            await signInManager.SignInAsync(user, model.RememberMe);
+            return RedirectToAction("Index", "Home");
+        }
+
+        ModelState.AddModelError("", "Username or Password is Incorrect !!!");
+        return View("SignIn", model);
+    }
+
+
+
 
         [HttpGet]
         public async Task<IActionResult> Register()
@@ -60,7 +75,7 @@ namespace PetConnect.PL.Controllers
                     case "Doctor":
                         return RedirectToAction("DoctorRegister");
                     case "Customer":
-                        return RedirectToAction("CustomerRegister");
+                        return RedirectToAction("DoctorRegister");
                     default:
                         return RedirectToAction("Register");
                 }
@@ -69,27 +84,11 @@ namespace PetConnect.PL.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> DoctorRegister(DoctorRegisterDTO model)
+        public IActionResult DoctorRegister()
         {
-            ViewBag.Specialties = Enum.GetValues(typeof(PetSpecialty))
-            .Cast<PetSpecialty>()
-            .Select(e => new SelectListItem
-            {
-                Value = e.ToString(),     
-                Text = e.ToString()
-            }).ToList();
-            if (!ModelState.IsValid)
-                return View(model);
-            return View("DoctorRegisterPost");
-        }
+      
 
-        [HttpPost]
-        public async Task<IActionResult> DoctorRegisterPost(DoctorRegisterDTO model)
-        {
-            bool Succesed = await accountService.DoctorRegister(model);
-            if (Succesed)
-                return RedirectToAction("SignIn");
-            return View("DoctorRegister", model);
+            return View();
         }
 
 
@@ -97,28 +96,26 @@ namespace PetConnect.PL.Controllers
 
 
 
+    [HttpPost]
+    public async Task<IActionResult> DoctorRegisterPost(DoctorRegisterDTO model)
+    {
 
 
+        if (!ModelState.IsValid)
+        {
+            return View("DoctorRegister", model); // Show form again with errors
+        }
 
+        bool succeeded = await accountService.DoctorRegister(model);
 
+        if (succeeded)
+        {
+            return RedirectToAction("SignIn");
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        ModelState.AddModelError("", "Registration failed. Please try again.");
+        return View("DoctorRegister", model);
+    }
 
 
 

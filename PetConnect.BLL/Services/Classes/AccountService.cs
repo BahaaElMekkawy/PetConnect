@@ -30,12 +30,15 @@ namespace PetConnect.BLL.Services.Classes
             return await roleManager.Roles.Select(r => r.Name).ToListAsync();
         }
 
-        public async Task<bool> SignIn(SignInDTO model)
+        public async Task<ApplicationUser> SignIn(SignInDTO model)
         {
             ApplicationUser? applicationUser = await userManager.FindByEmailAsync(model.Email);
-            if (applicationUser is null)
-                return false;
-            return await userManager.CheckPasswordAsync(applicationUser, model.Password);
+
+            if(await userManager.CheckPasswordAsync(applicationUser, model.Password))
+            {
+                return applicationUser;
+            }
+            return null;
         }
 
         public async Task<bool> DoctorRegister(DoctorRegisterDTO model) 
