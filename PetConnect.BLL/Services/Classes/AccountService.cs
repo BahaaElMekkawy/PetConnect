@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PetConnect.BLL.Common.AttachmentServices;
+
+using Microsoft.Extensions.DependencyInjection;
 using PetConnect.BLL.Services.DTO.Account;
 using PetConnect.BLL.Services.Interfaces;
 using PetConnect.DAL.Data.Identity;
@@ -37,7 +39,7 @@ namespace PetConnect.BLL.Services.Classes
         {
             ApplicationUser? applicationUser = await userManager.FindByEmailAsync(model.Email);
 
-            if(await userManager.CheckPasswordAsync(applicationUser, model.Password))
+            if (await userManager.CheckPasswordAsync(applicationUser, model.Password))
             {
                 return applicationUser;
             }
@@ -105,6 +107,10 @@ namespace PetConnect.BLL.Services.Classes
             }
             return false;
         }
+
+
+      
+
 
 
 

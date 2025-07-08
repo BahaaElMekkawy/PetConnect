@@ -71,6 +71,9 @@
                     <li><a asp-action="index" asp-controller="customer">Customers</a></li>
 
                     <li><a asp-action="index" asp-controller="contact">Contact</a></li>
+                    @if(User.IsInRole("Admin")){
+                    <li><a asp-action="index" asp-controller="admin">Admin DashBoard</a></li>
+					}
 
                     <div class="btns d-block  d-xl-none">
                         @if (!User.Identity.IsAuthenticated)
