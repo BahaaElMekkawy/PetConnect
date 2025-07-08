@@ -60,10 +60,12 @@ namespace PetConnect.BLL.Services.DTO.Doctor
         [StringLength(50, ErrorMessage = "City name can't be longer than 20 characters.")]
         public string City { get; set; } = null!;
 
+        public bool IsApproved { get; set; }
 
 
-    
 
-   
+
+
+
     }
 }

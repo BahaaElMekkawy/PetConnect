@@ -20,9 +20,9 @@ namespace PetConnect.DAL.Services
             // Services 
 
             services.AddScoped<IPetCategoryService, PetCategoryService>();
-
             services.AddScoped<IPetService, PetService>();
             services.AddScoped<IPetBreadService,PetBreadService>();
+            services.AddScoped<IAdminService, AdminService>();
             return services;
         }
     }

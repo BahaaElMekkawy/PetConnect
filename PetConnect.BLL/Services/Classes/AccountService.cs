@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using PetConnect.BLL.Services.DTO.Account;
 using PetConnect.BLL.Services.Interfaces;
 using PetConnect.DAL.Data.Identity;
@@ -34,21 +35,21 @@ namespace PetConnect.BLL.Services.Classes
         {
             ApplicationUser? applicationUser = await userManager.FindByEmailAsync(model.Email);
 
-            if(await userManager.CheckPasswordAsync(applicationUser, model.Password))
+            if (await userManager.CheckPasswordAsync(applicationUser, model.Password))
             {
                 return applicationUser;
             }
             return null;
         }
 
-        public async Task<bool> DoctorRegister(DoctorRegisterDTO model) 
+        public async Task<bool> DoctorRegister(DoctorRegisterDTO model)
         {
             var doctor = new Doctor
             {
                 FName = model.FName,
                 LName = model.LName,
                 Email = model.Email,
-                UserName = model.Email, 
+                UserName = model.Email,
                 ImgUrl = model.ImageUrl,
                 Gender = model.Gender,
                 PricePerHour = model.PricePerHour,
@@ -97,6 +98,10 @@ namespace PetConnect.BLL.Services.Classes
             }
             return false;
         }
+
+
+      
+
 
 
 
