@@ -25,7 +25,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
      List<DoctorDetailsDTO> TopDoctors =  doctorService.GetAll().Take(4).ToList();
-     List<PetDataDto> TopPets = petService.GetAllPets(4).ToList();
+     List<PetDataDto> TopPets = petService.GetAllPetsByCountForAdoption(4).ToList();
         EntitiesInHomeView entitiesInHome = new EntitiesInHomeView() { PetDataDtos=TopPets,DoctorDetailsDTOs=TopDoctors};
         return View(entitiesInHome);
     }

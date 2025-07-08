@@ -18,10 +18,12 @@ namespace PetConnect.PL.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.Categories = _PetCategoryService.GetAllCategories();
+
           var Model=  _PetBreadService.GetAllBreads();
             return View(Model);
         }
-
+        [HttpGet]
         public IActionResult GetBreadsByCategory(int id) {
 
           var BradList=  _PetBreadService.GetBreadsByCategoryId(id);

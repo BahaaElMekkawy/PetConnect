@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Pet Breeds";
+    SelectList selectListItems = new SelectList(ViewBag.Categories, "Id", "Name");
 }
 
 
@@ -40,7 +41,12 @@
 
     <div class="container pb-5">
 
-
+        <div class="mb-4">
+            <label for="categorySelect" class="form-label fw-semibold">Filter by Category</label>
+            <select id="categorySelect" class="form-select rounded-4 shadow-sm" asp-items="selectListItems">
+                <option value="">Select Category</option>
+            </select>
+        </div>
         @* <div class="alert alert-info d-flex justify-content-between align-items-center shadow-sm rounded-4 mb-5"> *@
         @*     <div class="fs-5"> *@
         @*         Total Pet Categories *@
@@ -52,6 +58,8 @@
 
 
         <div class="row g-4">
+ 
+
             @foreach (var breed in Model)
             {
                 <div class="col-12 col-md-6 col-lg-4">
@@ -86,6 +94,54 @@
         </div>
     </div>
 </main>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const categoryList = document.getElementById('categorySelect');
+        const breedContainer = document.querySelector('.row.g-4');
+
+        categoryList.addEventListener('change', function () {
+            const categoryId = this.value;
+
+    
+            if (!categoryId) {
+                location.reload(); 
+                return;
+            }
+
+            fetch(`/PetBread/GetBreadsByCategory?id=${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                  
+                    breedContainer.innerHTML = '';
+
+
+                    data.forEach(breed => {
+                        const col = document.createElement('div');
+                        col.className = 'col-12 col-md-6 col-lg-4';
+                        col.innerHTML = `
+                            <div class="card shadow-sm border-0 rounded-4 h-100">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-center flex-grow-1">${breed.name}</h5>
+                                    <p class="text-center text-muted mb-2">
+                                        Category Name: <span class="fw-semibold">${breed.categoryName}</span>
+                                    </p>
+                                    <div class="d-flex justify-content-center gap-2 mt-3">
+                                        <a href="/PetBread/EditDelete/${breed.id}" class="btn btn-outline-primary w-100">
+                                            <i class="bi bi-pencil-square me-1"></i> Edit / Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        breedContainer.appendChild(col);
+                    });
+                });
+        });
+    });
+</script>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

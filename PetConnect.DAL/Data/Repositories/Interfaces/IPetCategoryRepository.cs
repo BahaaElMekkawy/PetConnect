@@ -13,5 +13,6 @@ namespace PetConnect.DAL.Data.Repositories.Interfaces
 
 
         public int GetCountOfCategories();
+        public bool CheckIfTheCategoryExist(string CategoryName);
     }
 }

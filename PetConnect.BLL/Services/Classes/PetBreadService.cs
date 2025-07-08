@@ -1,4 +1,5 @@
 ﻿using PetConnect.BLL.Services.DTO.PetBreadDto;
+using PetConnect.BLL.Services.DTO.PetCategoryDto;
 using PetConnect.BLL.Services.Interfaces;
 using PetConnect.DAL.Data.Models;
 using PetConnect.DAL.UnitofWork;
@@ -86,6 +87,6 @@ namespace PetConnect.BLL.Services.Classes
             return 0;
         }
 
-    
+
     }
 }

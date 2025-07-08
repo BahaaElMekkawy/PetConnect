@@ -19,6 +19,11 @@ namespace PetConnect.DAL.Data.Repositories.Classes
          
         }
 
+        public bool CheckIfTheCategoryExist(string CategoryName)
+        {
+         return   context.PetCategory.Any(C => C.Name == CategoryName);
+        }
+
         public int GetCountOfCategories()
         {
          return  context.PetCategory.Count();

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using PetConnect.DAL.Data.Repositories.Interfaces;
+using PetConnect.DAL.Data.Enums;
 
 namespace PetConnect.BLL.Services.Classes
 {
@@ -17,6 +18,7 @@ namespace PetConnect.BLL.Services.Classes
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IAttachmentService _attachmentService;
+
         public PetService(IUnitOfWork unitOfWork , IAttachmentService attachmentService)
         {
             _unitOfWork = unitOfWork;
@@ -25,7 +27,7 @@ namespace PetConnect.BLL.Services.Classes
 
         }
 
-        public IAttachmentService AttachmentService { get; }
+        
 
         public async Task <int> AddPet(AddedPetDto addedPet )
         {
@@ -38,21 +40,15 @@ namespace PetConnect.BLL.Services.Classes
            return _unitOfWork.SaveChanges();
         }
 
-       
 
-        public void DeletePet(int id)
-        {
-            
-        }
 
-        public IEnumerable<PetDataDto> GetAllPets(int? count)
+        public IEnumerable<PetDataDto> GetAllPets()
         {
             List<PetDataDto> petDatas = new List<PetDataDto>();
-            IEnumerable<Pet> PetList;
-            if (count is null)
-                PetList = _unitOfWork.PetRepository.GetAll();
-            else
-                PetList = _unitOfWork.PetRepository.GetAll().Take(count.Value);
+            IEnumerable<Pet> PetList= _unitOfWork.PetRepository.GetAll();
+
+
+
             foreach (var Pet in PetList)
             {
                 petDatas.Add(new PetDataDto()
@@ -77,10 +73,37 @@ namespace PetConnect.BLL.Services.Classes
             return Pet;
         }
 
+        public IEnumerable<PetDataDto> GetAllPetsByCountForAdoption(int count)
+        {
+            List<PetDataDto> petDatas = new List<PetDataDto>();
+            IEnumerable<Pet> PetList = _unitOfWork.PetRepository.GetAll().Where(P => P.Status == PetStatus.ForAdoption).Take(count) ;
+
+
+
+            foreach (var Pet in PetList)
+            {
+                petDatas.Add(new PetDataDto()
+                {
+                    Name = Pet.Name,
+                    ImgUrl = Pet.ImgUrl,
+                    Status = Pet.Status,
+                    Id = Pet.Id,
+                });
+            }
+            return petDatas;
+        }
+
         public void UpdatePet(UpdatedPetDto UpdatedPet)
         {
             throw new NotImplementedException();
         }
 
+
+        public void DeletePet(int id)
+        {
+
+        }
+
+ 
     }
 }

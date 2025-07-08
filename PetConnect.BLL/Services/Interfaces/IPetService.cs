@@ -18,8 +18,9 @@ namespace PetConnect.BLL.Services.Interfaces
         void UpdatePet(UpdatedPetDto UpdatedPet);
         void DeletePet(int id);
 
-        IEnumerable<PetDataDto> GetAllPets(int? count);
+        IEnumerable<PetDataDto> GetAllPets();
         PetDetailsDto? GetPet(int id);
+        IEnumerable<PetDataDto> GetAllPetsByCountForAdoption(int count);
 
     }
 }

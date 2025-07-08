@@ -38,14 +38,14 @@ namespace PetConnect.PL.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(AddedPetCategoryDTO); 
+            return View(AddedPetCategoryDTO);
 
         }
         #endregion
 
 
 
-        [HttpGet] 
+        [HttpGet]
         public IActionResult EditDelete(int? id)
         {
             if (id is null)
@@ -69,7 +69,9 @@ namespace PetConnect.PL.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View();
+            // I did this mapping because of the error rises about that the view takes GPetCategoryDto  and i was passing UPetCategoryDto  
+            GPetCategoryDto gPet = new GPetCategoryDto() { Id = UPetCategoryDto.Id, Name = UPetCategoryDto.Name };
+            return View("EditDelete", gPet);
 
         }
 
@@ -84,8 +86,9 @@ namespace PetConnect.PL.Controllers
 
             return RedirectToAction(nameof(Index));
 
-        
+
         }
+
 
 
 
