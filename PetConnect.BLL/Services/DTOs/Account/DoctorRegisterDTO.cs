@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using PetConnect.DAL.Data.Enums;
 
 namespace PetConnect.BLL.Services.DTO.Account
@@ -32,7 +33,7 @@ namespace PetConnect.BLL.Services.DTO.Account
 
         [Required]
         [Display(Name = "Image URL")]
-        public string ImageUrl { get; set; } = null!;
+        public IFormFile ImageUrl { get; set; } = null!;
 
         // --- Doctor-specific Info ---
         [Required]
@@ -46,7 +47,7 @@ namespace PetConnect.BLL.Services.DTO.Account
 
         [Required]
         [Display(Name = "Certificate URL")]
-        public string CertificateUrl { get; set; } = null!;
+        public IFormFile CertificateUrl { get; set; } = null!;
 
         // --- Address Info ---
         [Required]

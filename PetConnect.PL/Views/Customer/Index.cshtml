@@ -1,0 +1,75 @@
+﻿@using PetConnect.BLL.Services.DTOs.Customer
+@model List<CustomerDetailsDTO>
+@{
+    Layout = "_NewLayout";
+    var name = Context.Request.Query["name"];
+    var city = Context.Request.Query["city"];
+}
+
+<section class="hero section pb-0">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Our Customers</h2>
+        <p>Explore our active pet lovers and their registered information.</p>
+    </div>
+
+    <div class="container d-flex justify-content-center">
+        <form method="get" class="col-md-8 mb-4 mt-4">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Search by name..." value="@name" />
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="city" class="form-control" placeholder="Search by city..." value="@city" />
+                </div>
+            </div>
+
+            <div class="row g-3 mt-2 justify-content-center">
+                <div class="col-md-3 d-grid">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    @if (ViewBag.Info != null)
+    {
+        <div class="container">
+            <div class="alert alert-danger text-center">@ViewBag.Info</div>
+        </div>
+    }
+</section>
+
+<section id="customers" class="team section light-background">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-5">
+            @foreach (var customer in Model)
+            {
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <a asp-controller="Customer" asp-action="details" asp-route-id="@customer.Id" class="text-dark text-decoration-none">
+                        <div class="team-card text-center">
+                            <div class="team-image">
+                                <img src="@customer.ImgUrl"
+                                     class="img-fluid"
+                                     alt="@customer.FName @customer.LName" />
+                                <div class="team-overlay">
+                                    <p>From: <strong>@customer.City</strong></p>
+                                </div>
+                            </div>
+                            <div class="team-content">
+                                <h4>@customer.FName @customer.LName</h4>
+                                <span class="position">Customer</span>
+                                <div class="rating mt-2">
+                                    <i class="bi bi-star-fill text-dark-yellow"></i>
+                                    <i class="bi bi-star-fill text-dark-yellow"></i>
+                                    <i class="bi bi-star-fill text-dark-yellow"></i>
+                                    <i class="bi bi-star-half text-dark-yellow"></i>
+                                    <i class="bi bi-star text-dark-yellow"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>

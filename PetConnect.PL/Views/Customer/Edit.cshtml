@@ -1,0 +1,78 @@
+﻿@model PetConnect.BLL.Services.DTOs.Customer.CustomerProfileDTO
+
+@{
+    Layout = "_NewLayout";
+    ViewData["Title"] = "Edit Customer";
+}
+
+<section id="hero" class="hero section pb-3">
+    <div class="container section-title aos-init aos-animate pb-0" data-aos="fade-up">
+        <h2>Hello, @Model.FName</h2>
+        <h3>Edit your profile</h3>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <form asp-action="Edit" method="post" class="row g-3" enctype="multipart/form-data">
+            @* Hidden Fields *@
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ImgUrl" /> @* keep original image if not replaced *@
+
+            <div class="col-md-6">
+                <label asp-for="FName" class="form-label"></label>
+                <input asp-for="FName" class="form-control" />
+                <span asp-validation-for="FName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="LName" class="form-label"></label>
+                <input asp-for="LName" class="form-control" />
+                <span asp-validation-for="LName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Gender" class="form-label"></label>
+                <select asp-for="Gender" class="form-select" asp-items="Html.GetEnumSelectList<Gender>()">
+                    <option disabled value="">-- Select Gender --</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Street" class="form-label"></label>
+                <input asp-for="Street" class="form-control" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="City" class="form-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="ImageFile" class="form-label">Upload New Image</label>
+                <input asp-for="ImageFile" type="file" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+                @if (!string.IsNullOrEmpty(Model.ImgUrl))
+                {
+                    <div class="mt-2">
+                        <img src="@Model.ImgUrl" class="img-thumbnail" style="max-width: 150px;" />
+                        <div class="text-muted">Current image</div>
+                    </div>
+                }
+            </div>
+
+            <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-move">Save Changes</button>
+                <a asp-action="Index" class="btn btn-outline-primary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -6,6 +6,7 @@ using PetConnect.BLL.Services.Interfaces;
 using PetConnect.BLL.Services.DTO.Account;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PetConnect.DAL.Data.Enums;
+using PetConnect.BLL.Common.AttachmentServices;
 
 namespace PetConnect.PL.Controllers
 {
@@ -45,9 +46,14 @@ namespace PetConnect.PL.Controllers
             var user = await accountService.SignIn(model); // Return ApplicationUser or null
 
             if (user != null)
-        {
-            await signInManager.SignInAsync(user, model.RememberMe);
-            return RedirectToAction("Index", "Home");
+            {
+                await signInManager.SignInAsync(user, model.RememberMe);
+                if (await userManager.IsInRoleAsync(user, "Customer"))
+                {
+                    return RedirectToAction("Profile", "Customer");
+                }
+
+                return RedirectToAction("Index", "Home");
         }
 
         ModelState.AddModelError("", "Username or Password is Incorrect !!!");
@@ -99,16 +105,15 @@ namespace PetConnect.PL.Controllers
             return View();
         }
 
+    
 
 
 
-
-        [HttpPost]
+            [HttpPost]
     public async Task<IActionResult> DoctorRegisterPost(DoctorRegisterDTO model)
-    {
-
-
-        if (!ModelState.IsValid)
+        {
+            
+            if (!ModelState.IsValid)
         {
             return View("DoctorRegister", model); // Show form again with errors
         }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PetConnect.BLL.Common.AttachmentServices;
 using PetConnect.BLL.Services.DTO.Account;
 using PetConnect.BLL.Services.Interfaces;
 using PetConnect.DAL.Data.Identity;
@@ -14,16 +15,18 @@ namespace PetConnect.BLL.Services.Classes
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<ApplicationRole> roleManager;
         private readonly SignInManager<ApplicationUser> signinManager;
+        private readonly IAttachmentService attachmentService;
 
         public AccountService(IUnitOfWork _unitOfWork,
             UserManager<ApplicationUser> _userManager,
             RoleManager<ApplicationRole> _roleManager,
-            SignInManager<ApplicationUser> _signinManager)
+            SignInManager<ApplicationUser> _signinManager, IAttachmentService _attachmentService)
         {
             unitOfWork = _unitOfWork;
             userManager = _userManager;
             roleManager = _roleManager;
             signinManager = _signinManager;
+            attachmentService = _attachmentService;
         }
         public async Task<List<string>> GetAllRolesAsync()
         {
@@ -41,19 +44,22 @@ namespace PetConnect.BLL.Services.Classes
             return null;
         }
 
-        public async Task<bool> DoctorRegister(DoctorRegisterDTO model) 
+        public async Task<bool> DoctorRegister(DoctorRegisterDTO model)
         {
+            var ProfileImage = await attachmentService.UploadAsync(model.ImageUrl, Path.Combine("img", "doctors"));
+            var CertificateImage = await attachmentService.UploadAsync(model.CertificateUrl, Path.Combine("img", "certificates"));
+
             var doctor = new Doctor
             {
                 FName = model.FName,
                 LName = model.LName,
                 Email = model.Email,
                 UserName = model.Email, 
-                ImgUrl = model.ImageUrl,
+                ImgUrl = $"/assets/img/doctors/{ProfileImage}",
                 Gender = model.Gender,
                 PricePerHour = model.PricePerHour,
                 PetSpecialty = model.PetSpecialty,
-                CertificateUrl = model.CertificateUrl,
+                CertificateUrl = $"/assets/img/certificates/{CertificateImage}",
                 Address = new Address
                 {
                     Country = model.Country,
@@ -73,13 +79,15 @@ namespace PetConnect.BLL.Services.Classes
 
         public async Task<bool> CustomerRegister(CustomerRegisterDTO model)
         {
+            var ProfileImage = await attachmentService.UploadAsync(model.ImageUrl, Path.Combine("img", "person"));
+
             var customer = new Customer
             {
                 FName = model.FName,
                 LName = model.LName,
                 Email = model.Email,
                 UserName = model.Email,
-                ImgUrl = model.ImageUrl,
+                ImgUrl = $"/assets/img/person/{ProfileImage}",
                 Gender = model.Gender,
                 Address = new Address
                 {

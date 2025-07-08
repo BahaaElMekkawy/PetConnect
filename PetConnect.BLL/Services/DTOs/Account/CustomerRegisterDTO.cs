@@ -1,4 +1,5 @@
-﻿using PetConnect.DAL.Data.Enums;
+﻿using Microsoft.AspNetCore.Http;
+using PetConnect.DAL.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -58,7 +59,7 @@ namespace PetConnect.BLL.Services.DTO.Account
 
         [Required]
         [Display(Name = "Image URL")]
-        public string ImageUrl { get; set; } = null!;
+        public IFormFile ImageUrl { get; set; } = null!;
 
 
         // --- Address Info ---

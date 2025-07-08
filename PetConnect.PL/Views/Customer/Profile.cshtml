@@ -1,6 +1,5 @@
-﻿@using PetConnect.BLL.Services.DTO
-@using PetConnect.BLL.Services.DTO.Doctor
-@model DoctorDetailsDTO
+﻿@using PetConnect.BLL.Services.DTOs.Customer
+@model CustomerProfileDTO
 
 @{
     Layout = "_NewLayout";
@@ -8,41 +7,32 @@
 
 <section id="hero" class="hero section pb-0">
     <div class="container section-title aos-init aos-animate pb-0" data-aos="fade-up">
-        <h2>Our Vets</h2>
-        <h3>Dr. @Model.FName</h3>
+        <h2>Hello, @Model.FName</h2>
+        <h3>Profile Details</h3>
     </div>
 </section>
 
-<section id="doctor-profile" class="section">
+<section id="customer-profile" class="section">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <img src= "@Model.ImgUrl"
+                <img src="@Model.ImgUrl"
                      class="img-fluid rounded" alt="@Model.FName's photo" />
             </div>
             <div class="col-md-8">
-                <h3 class="mb-4">Dr. @Model.FName @Model.LName</h3>
-                <p><strong>Specialty:</strong> @Model.PetSpecialty</p>
+                <h3 class="mb-4">@Model.FName @Model.LName</h3>
                 <p><strong>Gender:</strong> @Model.Gender</p>
-                <p><strong>Price Per Hour:</strong> @Model.PricePerHour.ToString("F2") EGP</p>
-                <p>
-                    <strong>Certificate:</strong>
-                    <a href="@Model.CertificateUrl" target="_blank">View Certificate</a>
-                </p>
                 <p><strong>Address:</strong> @Model.Street, @Model.City</p>
-                <a href="#" class="btn btn-primary mt-3">Book Appointment</a><br/>
+
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mt-3">Update Profile</a>
-<button type="button" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
-    Delete Account
-</button>            </div>
+
+                <button type="button" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                    Delete Account
+                </button>
+            </div>
         </div>
     </div>
 </section>
-
-
-
-
-
 
 <!-- Delete Confirmation Modal -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -62,4 +52,3 @@
         </div>
     </div>
 </div>
-

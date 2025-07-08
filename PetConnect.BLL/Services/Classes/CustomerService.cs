@@ -1,4 +1,5 @@
-﻿using PetConnect.BLL.Services.DTOs.Customer;
+﻿using PetConnect.BLL.Common.AttachmentServices;
+using PetConnect.BLL.Services.DTOs.Customer;
 using PetConnect.BLL.Services.Interfaces;
 using PetConnect.DAL.Data.Enums;
 using PetConnect.DAL.Data.Models;
@@ -15,11 +16,13 @@ namespace PetConnect.BLL.Services.Classes
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPetService _petService;
+        private readonly IAttachmentService attachmentSetvice;
 
-        public CustomerService(IUnitOfWork unitOfWork,IPetService petService)
+        public CustomerService(IUnitOfWork unitOfWork,IPetService petService,IAttachmentService attachmentSetvice)
         {
             _unitOfWork = unitOfWork;
             _petService = petService;
+            this.attachmentSetvice = attachmentSetvice;
         }
 
  
@@ -58,6 +61,88 @@ namespace PetConnect.BLL.Services.Classes
 
             return detailsCustomerRequestAdoption;
         }
+
+
+        public CustomerProfileDTO GetProfile(string id)
+        {
+            var customer = _unitOfWork.CustomerRepository.GetByID(id);
+
+            if (customer == null)
+                return null; // or throw exception
+
+            return new CustomerProfileDTO
+            {
+                Id = customer.Id,
+                FName = customer.FName,
+                LName = customer.LName,
+                ImgUrl = customer.ImgUrl,
+                Gender = customer.Gender.ToString(),
+                Street = customer.Address.Street,
+                City = customer.Address.City
+            };
+        }
+
+
+
+        public IEnumerable<CustomerDetailsDTO> GetAllCustomers()
+        {
+            return _unitOfWork.CustomerRepository.GetAll()
+                .Select(c => new CustomerDetailsDTO
+                {
+                    Id = c.Id,
+                    FName = c.FName,
+                    LName = c.LName,
+                    ImgUrl = c.ImgUrl,
+                    City = c.Address.City
+                }).ToList();
+        }
+
+
+        public void Delete(string id)
+        {
+            var customer = _unitOfWork.CustomerRepository.GetByID(id);
+            if (customer is not null)
+            {
+                _unitOfWork.CustomerRepository.Delete(customer);
+                _unitOfWork.SaveChanges();
+            }
+
+        }
+
+
+
+        //update
+        public async Task UpdateProfile(CustomerProfileDTO dto)
+        {
+            var customer = _unitOfWork.CustomerRepository.GetByID(dto.Id);
+            if (customer == null)
+                throw new Exception("Customer not found");
+
+            if (dto.ImageFile != null && dto.ImageFile.Length > 0)
+            {
+                var fileName = await attachmentSetvice.UploadAsync(dto.ImageFile, Path.Combine("img", "person"));
+                if (!string.IsNullOrEmpty(fileName))
+                {
+                    customer.ImgUrl = $"/assets/img/person/{fileName}";
+                }
+            }
+
+            customer.FName = dto.FName;
+            customer.LName = dto.LName;
+
+            if (customer.Address == null)
+                customer.Address = new Address();
+
+            customer.Address.Street = dto.Street;
+            customer.Address.City = dto.City;
+
+            if (Enum.TryParse(dto.Gender, out Gender gender))
+                customer.Gender = gender;
+
+            _unitOfWork.CustomerRepository.Update(customer);
+            _unitOfWork.SaveChanges();
+        }
+
 
     }
 }

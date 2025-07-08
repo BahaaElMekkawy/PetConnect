@@ -68,11 +68,16 @@
                             @* <li><a asp-action="Index" asp-controller="Pets">Birds</a></li> *@
                         </ul>
                     </li>
+                    <li><a asp-action="index" asp-controller="customer">Customers</a></li>
+
                     <li><a asp-action="index" asp-controller="contact">Contact</a></li>
 
                     <div class="btns d-block  d-xl-none">
-                        <a class="btn-getstarted m-2" asp-action="SignIn" asp-controller="Account">Login</a>
-                        <a class="btn-getstarted m-2" asp-action="Register" asp-controller="Account">Register</a>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a class="btn-getstarted m-2" asp-action="SignIn" asp-controller="Account">Login</a>
+                            <a class="btn-getstarted m-2" asp-action="Register" asp-controller="Account">Register</a>
+                        }
                     </div>
 
 
@@ -88,6 +93,11 @@
                 else
                 {
                     <a class="btn-getstarted" asp-action="SignOut" asp-controller="Account">Logout</a>
+                    @if (User.IsInRole("Customer"))
+                    {
+                        @* <a class="btn-getstarted" asp-action="profile" asp-controller="customer">Profile</a> *@
+                    }
+
 
                 }
             </div>

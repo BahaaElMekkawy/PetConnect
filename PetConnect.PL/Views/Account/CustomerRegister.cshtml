@@ -22,7 +22,7 @@
         <div class="col-lg-8 col-md-10">
             @* <h2 class="text-center mb-4">Register as a Customer</h2> *@
 
-            <form method="post" asp-action="CustomerRegisterPost">
+            <form method="post" asp-action="CustomerRegisterPost" enctype="multipart/form-data">
                 @* -------------- SUMMARY -------------- *@
                 <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
@@ -63,15 +63,16 @@
                         <input asp-for="Password" class="form-control" type="password" />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
-
-                </div>
-
-                
                     <div class="col-md-6">
                         <label asp-for="ImageUrl" class="form-label"></label>
                         <input asp-for="ImageUrl" class="form-control" />
                         <span asp-validation-for="ImageUrl" class="text-danger"></span>
                     </div>
+
+                </div>
+
+                
+                 
 
                 @* -------------- ADDRESS -------------- *@
                 <div class="row g-3 mt-2">

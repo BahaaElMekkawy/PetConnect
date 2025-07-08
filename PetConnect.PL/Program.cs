@@ -19,9 +19,16 @@ namespace PetConnect.PL
             #region Services
             // Add services to the container.
 
-            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
-                .AddEntityFrameworkStores<AppDbContext>()
-                .AddDefaultTokenProviders();
+            builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+            {
+                options.Password.RequiredLength = 6; // more than 5
+                options.Password.RequireNonAlphanumeric = false; // disallow symbols
+                options.Password.RequireDigit = true;             // require at least one digit
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+            })
+ .AddEntityFrameworkStores<AppDbContext>()
+ .AddDefaultTokenProviders();
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
@@ -37,7 +44,8 @@ namespace PetConnect.PL
             builder.Services.AddScoped<IAccountService, AccountService>();
             builder.Services.AddScoped<IDoctorService, DoctorService>();
             builder.Services.AddScoped<IAttachmentService, AttachmentService>();
-            
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
+
 
             #endregion
 

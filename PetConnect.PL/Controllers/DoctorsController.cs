@@ -54,6 +54,14 @@ namespace PetConnect.PL.Controllers
 
             return View(filteredList);
         }
+        public IActionResult Delete(string id)
+        {
+            if (id == null)
+                return NotFound();
+
+            doctorService.Delete(id);
+            return RedirectToAction("Index");
+        }
         public IActionResult Profile(string id)
         {
             if (id == null)
@@ -66,7 +74,6 @@ namespace PetConnect.PL.Controllers
 
             return View(doctorDTO);
         }
-
         [HttpGet]
         public IActionResult Edit(string id)
         {
