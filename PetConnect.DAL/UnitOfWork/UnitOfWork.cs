@@ -23,7 +23,7 @@ namespace PetConnect.DAL.UnitofWork
 
         public ICustomerAddedPetsRepository CustomerAddedPetsRepository => new CustomerAddedPetsRepository(context);
 
-        public ICustomerPetAdpotionsRepository CustomerPetAdpotionsRepository => new CustomerPetAdpotionsRepository(context);
+        public ICustomerPetAdoptionsRepository CustomerPetAdpotionsRepository => new CustomerPetAdpotionsRepository(context);
 
         public IDoctorRepository DoctorRepository => new DoctorRepository(context);
 

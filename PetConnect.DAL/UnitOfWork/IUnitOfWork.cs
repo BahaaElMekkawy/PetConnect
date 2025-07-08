@@ -13,7 +13,7 @@ namespace PetConnect.DAL.UnitofWork
         public IAdminRepository AdminRepository { get; }
         public ICustomerRepository CustomerRepository { get; }
         public ICustomerAddedPetsRepository CustomerAddedPetsRepository { get; }
-        public ICustomerPetAdpotionsRepository CustomerPetAdpotionsRepository { get; }
+        public ICustomerPetAdoptionsRepository CustomerPetAdpotionsRepository { get; }
         public IDoctorRepository DoctorRepository { get; }
         public IPetRepository PetRepository { get; }
         public IPetBreedRepository PetBreedRepository { get; }
