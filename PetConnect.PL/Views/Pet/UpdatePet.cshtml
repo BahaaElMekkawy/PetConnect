@@ -1,0 +1,58 @@
+﻿@using PetConnect.DAL.Data.Models
+@model Pet
+@{
+    
+    // SelectList ListOfOptions = new SelectList(Model.Status)
+}
+
+<form method="post" asp-action="" asp-route-id="@Model.Id">
+    <div class="card p-4 shadow-sm">
+        <h5 class="card-title mb-4">Update Pet Details</h5>
+
+        @* <div class="mb-3"> *@
+        @*     <label for="id" class="form-label">ID</label> *@
+        @*     <input type="number" class="form-control" asp-for="@m" readonly> *@
+        @* </div> *@
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" asp-for="Name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select class="form-select" id="status" name="Status">
+                <option value="0">Available</option>
+                <option value="1">Adopted</option>
+                <option value="2">Pending</option>
+                <!-- Add other PetStatus values as needed -->
+            </select>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" asp-for="IsApproved">
+            <label class="form-check-label" asp-for="IsApproved">Is Approved</label>
+        </div>
+
+        <div class="mb-3">
+            <label for="ownership" asp-for="Ownership">Ownership</label>
+            <select class="form-select" asp-for="Ownership">
+                <option value="0">Owner</option>
+                <option value="1">Shelter</option>
+                <!-- Add other Ownership values as needed -->
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ImgUrl" class="form-label">Image URL</label>
+            <input type="url" class="form-control" asp-for="ImgUrl">
+        </div>
+
+        <div class="mb-3">
+            <label for="breedId" class="form-label">Breed</label>
+            <input type="number" class="form-control" id="breedId" name="BreedId">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>

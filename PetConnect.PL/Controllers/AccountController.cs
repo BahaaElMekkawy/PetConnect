@@ -75,7 +75,7 @@ namespace PetConnect.PL.Controllers
                     case "Doctor":
                         return RedirectToAction("DoctorRegister");
                     case "Customer":
-                        return RedirectToAction("DoctorRegister");
+                        return RedirectToAction("CustomerRegister");
                     default:
                         return RedirectToAction("Register");
                 }
@@ -86,7 +86,15 @@ namespace PetConnect.PL.Controllers
         [HttpGet]
         public IActionResult DoctorRegister()
         {
-      
+            
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult CustomerRegister()
+        {
+
 
             return View();
         }
@@ -95,8 +103,7 @@ namespace PetConnect.PL.Controllers
 
 
 
-
-    [HttpPost]
+        [HttpPost]
     public async Task<IActionResult> DoctorRegisterPost(DoctorRegisterDTO model)
     {
 
@@ -117,6 +124,25 @@ namespace PetConnect.PL.Controllers
         return View("DoctorRegister", model);
     }
 
+        public async Task<IActionResult> CustomerRegisterPost(CustomerRegisterDTO model)
+        {
+
+
+            if (!ModelState.IsValid)
+            {
+                return View("CustomerRegister", model); // Show form again with errors
+            }
+
+            bool succeeded = await accountService.CustomerRegister(model);
+
+            if (succeeded)
+            {
+                return RedirectToAction("SignIn");
+            }
+
+            ModelState.AddModelError("", "Registration failed. Please try again.");
+            return View("CustomerRegister", model);
+        }
 
 
         public async Task<IActionResult> SignOut()
