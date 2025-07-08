@@ -14,14 +14,16 @@ namespace PetConnect.PL.Controllers
         private readonly IAccountService accountService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly RoleManager<ApplicationRole> roleManager;
 
         public AccountController(IAccountService _accountService,
             UserManager<ApplicationUser> _userManager,
-            SignInManager<ApplicationUser> _signInManager)
+            SignInManager<ApplicationUser> _signInManager,RoleManager<ApplicationRole> _roleManager)
         {
             accountService = _accountService;
             userManager = _userManager;
             signInManager = _signInManager;
+            roleManager = _roleManager;
         }
 
         [HttpGet]
@@ -157,5 +159,7 @@ namespace PetConnect.PL.Controllers
                 return Json(false);
             return Json(true);
         }
+
+
     }
 }

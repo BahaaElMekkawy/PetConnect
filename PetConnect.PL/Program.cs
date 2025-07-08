@@ -37,6 +37,7 @@ namespace PetConnect.PL
             builder.Services.AddScoped<IAccountService, AccountService>();
             builder.Services.AddScoped<IDoctorService, DoctorService>();
             builder.Services.AddScoped<IAttachmentService, AttachmentService>();
+            builder.Services.AddScoped<IAdminService, AdminService>();
             
 
             #endregion
